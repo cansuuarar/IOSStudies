@@ -20,6 +20,8 @@
 		0E570C7C2CC69CF4006EA301 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E570C7B2CC69CF4006EA301 /* NetworkManager.swift */; };
 		0E570C7F2CC6A21C006EA301 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E570C7E2CC6A21C006EA301 /* Alamofire */; };
 		0E570C822CC6A226006EA301 /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E570C812CC6A226006EA301 /* SwiftAlertView */; };
+		0EFE2CEF2CC7C5D700E50B7E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0EFE2CEE2CC7C5D700E50B7E /* SDWebImage */; };
+		0EFE2CF12CC7C5D700E50B7E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0EFE2CF02CC7C5D700E50B7E /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EFE2CEF2CC7C5D700E50B7E /* SDWebImage in Frameworks */,
 				0E570C822CC6A226006EA301 /* SwiftAlertView in Frameworks */,
+				0EFE2CF12CC7C5D700E50B7E /* SDWebImageMapKit in Frameworks */,
 				0E570C7F2CC6A21C006EA301 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +141,8 @@
 			packageProductDependencies = (
 				0E570C7E2CC6A21C006EA301 /* Alamofire */,
 				0E570C812CC6A226006EA301 /* SwiftAlertView */,
+				0EFE2CEE2CC7C5D700E50B7E /* SDWebImage */,
+				0EFE2CF02CC7C5D700E50B7E /* SDWebImageMapKit */,
 			);
 			productName = ThronesAPI;
 			productReference = 0E570C5B2CC69BDF006EA301 /* ThronesAPI.app */;
@@ -169,6 +175,7 @@
 			packageReferences = (
 				0E570C7D2CC6A21C006EA301 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0E570C802CC6A226006EA301 /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
+				0EFE2CED2CC7C5D700E50B7E /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 0E570C5C2CC69BDF006EA301 /* Products */;
 			projectDirPath = "";
@@ -443,6 +450,14 @@
 				minimumVersion = 2.2.1;
 			};
 		};
+		0EFE2CED2CC7C5D700E50B7E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -455,6 +470,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0E570C802CC6A226006EA301 /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
 			productName = SwiftAlertView;
+		};
+		0EFE2CEE2CC7C5D700E50B7E /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EFE2CED2CC7C5D700E50B7E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		0EFE2CF02CC7C5D700E50B7E /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EFE2CED2CC7C5D700E50B7E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
