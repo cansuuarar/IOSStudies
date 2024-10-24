@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var characterModelArray: [CharacterModel] = []
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView?.allowsSelection = true
+        //tableView?.allowsSelection = true
         //tableView.isScrollEnabled = true
     }
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fullNameCell", for: indexPath) as! FullNameCell
         let element = characterModelArray[indexPath.row]
-    
+        
         cell.fullNameLabel.text = element.fullName
         return cell
     }
@@ -57,9 +57,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             destinationVC.imageUrl = selectedChar?.imageUrl
         }
         
-        //print("prepare" + (destinationVC.fullName ?? "nil"))
-        
     }
+    
+
+    
 }
 
 
@@ -69,4 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
  bu da önce prepare sonra didselectrowat çalışmasına ve
  didselectrowat de oluşturduğum değeri prepare de nil oalrak görmeye sebep oluyor
  çözüm: vc den secondvc ye segue, ve didselectrow at de perform segue tetikleme.
+ 
+ 
+ ??? aynı isme tekrar tıklanınca sadece image geliyor.
  */

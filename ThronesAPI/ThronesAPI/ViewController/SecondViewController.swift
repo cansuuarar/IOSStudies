@@ -10,6 +10,7 @@ import SDWebImage
 
 class SecondViewController: UIViewController {
     
+    
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var familyLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -22,9 +23,10 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fullNameLabel.text = labelName + (fullName ?? "")
-        familyLabel.text = labelFamily + (family ?? "")
+        fullNameLabel.text = labelName + (fullName ?? "nil")
+        familyLabel.text = labelFamily + (family ?? "nil")
         imageView.sd_setImage(with: URL(string: imageUrl!), placeholderImage: UIImage(named: "placeholder"))
     }
     
+
 }
