@@ -8,25 +8,33 @@
 import UIKit
 import Alamofire
 import SwiftAlertView
+import Security
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var getFavorite: UILabel!
     @IBOutlet weak var factLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var dataArray: [String] = []
+    var selectedFact: String = ""
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager.shared.getFacts(count: 3, completionBlock: {dataArray in
+        refresh()
+        tableView.delegate = self
+        tableView.dataSource = self
+        getFavorite.isHidden = true
+    }
+    
+    func refresh() {
+        NetworkManager.shared.getFacts(count: 2, completionBlock: {dataArray in
             DispatchQueue.main.async {
                // self.factLabel.text = dataArray.joined()
                 self.dataArray = dataArray
                 self.tableView.reloadData()
             }
         })
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,8 +46,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let element = dataArray[indexPath.row]
         
         cell.label1.text = element
-        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedFact = dataArray[indexPath.row]
+    }
+    
+    @IBAction func setFavorite(_ sender: Any) {
+        UserDefaults.standard.set(selectedFact, forKey: "fact")
+        
+            print("set" + selectedFact)
+    }
+    
+    @IBAction func getFavorite(_ sender: Any) {
+        let favFact = UserDefaults.standard.string(forKey: "fact")
+        getFavorite.text = favFact
+        getFavorite.isHidden = false
+        print("get" + favFact!)
+    }
+    
 }
 
