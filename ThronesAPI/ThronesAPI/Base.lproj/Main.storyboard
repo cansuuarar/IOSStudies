@@ -17,8 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zQ0-pK-DQN">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fullNameCell" id="xqH-MJ-Rup" customClass="FullNameCell" customModule="ThronesAPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="63.666667938232422"/>
@@ -29,11 +30,14 @@
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75A-k9-nhL">
                                                     <rect key="frame" x="30" y="21" width="333" height="21.666666666666671"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="75A-k9-nhL" secondAttribute="bottom" constant="10" id="1VA-vA-bgj"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="75A-k9-nhL" secondAttribute="trailing" constant="10" id="EEM-n8-dmR"/>
@@ -41,6 +45,8 @@
                                                 <constraint firstItem="75A-k9-nhL" firstAttribute="top" secondItem="IPI-ne-Bmu" secondAttribute="topMargin" constant="10" id="twH-0n-WbI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="fullNameLabel" destination="75A-k9-nhL" id="soT-g7-ppQ"/>
                                         </connections>
@@ -51,10 +57,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zQ0-pK-DQN" secondAttribute="trailing" id="0aw-38-8ST"/>
-                            <constraint firstItem="zQ0-pK-DQN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Do-iv-9gv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zQ0-pK-DQN" secondAttribute="bottom" id="b1u-J8-ttR"/>
-                            <constraint firstItem="zQ0-pK-DQN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rTC-yT-Sq0"/>
+                            <constraint firstAttribute="bottom" secondItem="zQ0-pK-DQN" secondAttribute="bottom" id="3EL-R0-zPA"/>
+                            <constraint firstAttribute="trailing" secondItem="zQ0-pK-DQN" secondAttribute="trailing" id="C90-KC-HRp"/>
+                            <constraint firstItem="zQ0-pK-DQN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="b31-eH-3qs"/>
+                            <constraint firstItem="zQ0-pK-DQN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tc1-kb-LzW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hbP-4z-UDW"/>
