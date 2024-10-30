@@ -17,11 +17,13 @@ final class CharacterViewController: UIViewController {
     @IBOutlet weak private var imageView: UIImageView!
     
     var character: CharacterModel?
+    private var fullName = "Full Name: "
+    private var familyName = "Family Name: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fullNameLabel.text = character?.fullName ?? ""
-        familyLabel.text = character?.family ?? ""
+        fullNameLabel.text = fullName + (character?.fullName ?? "")
+        familyLabel.text = familyName + (character?.family ?? "")
         imageView.sd_setImage(with: URL(string: character?.imageUrl ?? ""), placeholderImage: UIImage(named: "placeholder"))
     }
     
@@ -44,17 +46,37 @@ final class CharacterViewController: UIViewController {
     
     // keychain
     @IBAction func saveToKeyChain(_ sender: Any) {
-        let encoder = JSONEncoder()
-        if let data = try? encoder.encode(character) {
-            let query: [String: Any] = [
-                kSecClass as String: kSecClassGenericPassword,
-                kSecAttrAccount as String: character?.fullName,
-                kSecValueData as String: data
-            ]
-            
-            SecItemAdd(query as CFDictionary, nil)
-            
+        clearKeychain()
+        do {
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(character) {
+                let query: [String: Any] = [
+                    kSecClass as String: kSecClassGenericPassword,
+                    kSecAttrAccount as String: character?.fullName ?? "",
+                    kSecAttrService as String: "favoriteCharacter",
+                    kSecValueData as String: data
+                ]
+                
+                SecItemDelete(query as CFDictionary)
+                SecItemAdd(query as CFDictionary, nil)
+                let alert = UIAlertController(title: "Success", message: "Character saved successfuly!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        } 
+    }
+    
+    func clearKeychain() {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword
+        ]
+        let status = SecItemDelete(query as CFDictionary)
+        
+        if status == errSecSuccess {
+            print("keychain items deleted")
+        } else {
+            print("error: \(status)")
         }
     }
+    
 }
-

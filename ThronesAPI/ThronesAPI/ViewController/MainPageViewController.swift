@@ -48,9 +48,33 @@ final class MainPageViewController: UIViewController {
             .instantiateViewController(withIdentifier: "favoriteChars") as? FavoriteCharactersViewController else {return}
         navigationController?.pushViewController(vc, animated: true)
         
-
-
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: "favoriteCharacter",
+            kSecReturnData as String: kCFBooleanTrue!,
+            kSecMatchLimit as String: kSecMatchLimitOne
+        ]
+        
+        var result: AnyObject?
+        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        
+        if status == errSecSuccess,
+           let data = result as? Data {
+            do {
+                let decoder = JSONDecoder()
+                let character = try decoder.decode(CharacterModel.self, from: data)
+                vc.character = character
+            } catch {
+                SwiftAlertView.show(title: "ERROR",
+                                    message: "Failed to decode JSON",
+                                    buttonTitles: "OK", "Cancel")
+            }
+        } else {
+            SwiftAlertView.show(title: "ERROR",
+                                message: "No character found in Keychain",
+                                buttonTitles: "OK", "Cancel")
+        }
     }
     
-  
+    
 }
