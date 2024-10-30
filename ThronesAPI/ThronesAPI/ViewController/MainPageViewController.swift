@@ -75,6 +75,4 @@ final class MainPageViewController: UIViewController {
                                 buttonTitles: "OK", "Cancel")
         }
     }
-    
-    
 }

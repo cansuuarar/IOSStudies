@@ -8,7 +8,7 @@
 import UIKit
 
 final class FavoriteCharactersViewController: UIViewController {
-
+    
     @IBOutlet private weak var fullNameLabel: UILabel!
     @IBOutlet private weak var familyLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!

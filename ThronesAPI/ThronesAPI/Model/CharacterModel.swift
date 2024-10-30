@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharacterModel: Codable {
+final class CharacterModel: Codable {
     var id: Int
     var firstName: String
     var lastName: String

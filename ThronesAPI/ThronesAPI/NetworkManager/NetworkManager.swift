@@ -30,31 +30,4 @@ final class NetworkManager {
             }
         }
     }
-    //escaping: asenkron işlem bitiyor ve escaping sayesinde bittikten sonra return ediyor.
-    
-    /*
-    func getCharacterId(id: Int, completionBlock: @escaping ([CharacterModel]) -> Void) {
-        let url = NetworkManager.BASE_URL + String(id)
-        AF.request(url).response { response in
-            let decoder = JSONDecoder()
-            do {
-                guard let data = response.data else { return }
-               // print(String(data: data, encoding: .utf8)!)
-                let decoded = try
-                decoder.decode(CharacterModel.self, from: data)
-                //completionBlock(decoded.fullName)
-            } catch {
-                SwiftAlertView.show(title: "ERROR",
-                                    message: "Failed to decode JSON",
-                                    buttonTitles: "OK", "Cancel")
-            }
-        }
-    }
-     */
 }
-
-/*
- alamofire ile get request i başlat
- request sunucuya gönderilir, yanıt alındığında alınan response u işlemek için response nesnesinin fonk kullanılır.
- json verisini swift objesine dönüştürmek için jsondecoder kullanılır, swift objesinin decodable conform etmesi gerekir.
- */

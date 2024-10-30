@@ -41,7 +41,6 @@ final class CharacterViewController: UIViewController {
                                 message: "Failed to save character",
                                 buttonTitles: "OK", "Cancel")
         }
-        
     }
     
     // keychain
@@ -63,7 +62,7 @@ final class CharacterViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-        } 
+        }
     }
     
     func clearKeychain() {
@@ -78,5 +77,4 @@ final class CharacterViewController: UIViewController {
             print("error: \(status)")
         }
     }
-    
 }
