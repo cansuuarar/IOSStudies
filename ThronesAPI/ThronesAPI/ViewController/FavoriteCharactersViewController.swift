@@ -21,6 +21,4 @@ final class FavoriteCharactersViewController: UIViewController {
         familyLabel.text = character?.family ?? ""
         imageView.sd_setImage(with: URL(string: character?.imageUrl ?? ""), placeholderImage: UIImage(named: "placeholder"))
     }
-    
-
 }

@@ -15,5 +15,6 @@ class CharacterModel: Codable {
     var title: String
     var family: String
     var image: String
-    var imageUrl: String 
+    var imageUrl: String
 }
+

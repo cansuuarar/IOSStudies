@@ -21,9 +21,6 @@ final class AllCharactersViewController: UIViewController, UITableViewDelegate, 
                 self.tableView.reloadData()
             }
         })
-        
-        // neden main.async:  getCharacter metodunda http isteği background processte çalışıyor olabilir. fakat bizim ui işlemimiz main queuda çalışır. bu sebeple main queue ya getirmiş oluyoruz.
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -34,8 +31,9 @@ final class AllCharactersViewController: UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fullNameCell", for: indexPath) as! FullNameCell
+        cell.contentView.backgroundColor = UIColor.black
         let element = characterModelArray[indexPath.row]
-        
+            
         cell.fullNameLabel.text = element.fullName
         return cell
     }
@@ -45,6 +43,7 @@ final class AllCharactersViewController: UIViewController, UITableViewDelegate, 
         guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "secondVC") as? CharacterViewController else {return}
         vc.character = selectedChar
         navigationController?.pushViewController(vc, animated: true)
+        tableView.reloadData()
     }
 }
 

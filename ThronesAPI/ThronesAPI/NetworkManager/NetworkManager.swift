@@ -22,7 +22,6 @@ final class NetworkManager {
                 guard let data = response.data else { return }
                 let decoded = try
                 decoder.decode([CharacterModel].self, from: data)
-                print("decoded ok")
                 completionBlock(decoded)
             } catch {
                 SwiftAlertView.show(title: "ERROR",

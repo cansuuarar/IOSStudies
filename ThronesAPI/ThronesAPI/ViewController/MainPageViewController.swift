@@ -7,11 +7,12 @@
 
 import UIKit
 import SwiftAlertView
+import Security
 
 final class MainPageViewController: UIViewController {
     
     private var characterModelArray: [CharacterModel] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,7 +27,7 @@ final class MainPageViewController: UIViewController {
     
     @IBAction func listFavoriteChars(_ sender: Any) {
         guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-                                   .instantiateViewController(withIdentifier: "favoriteChars") as? FavoriteCharactersViewController else {return}
+            .instantiateViewController(withIdentifier: "favoriteChars") as? FavoriteCharactersViewController else {return}
         navigationController?.pushViewController(vc, animated: true)
         
         guard let data = UserDefaults.standard.data(forKey: "character") else {return}
@@ -38,7 +39,18 @@ final class MainPageViewController: UIViewController {
             SwiftAlertView.show(title: "ERROR",
                                 message: "Failed to decode JSON",
                                 buttonTitles: "OK", "Cancel")
-            }
+        }
     }
-   
+    
+    
+    @IBAction func keyChainFavs(_ sender: Any) {
+        guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            .instantiateViewController(withIdentifier: "favoriteChars") as? FavoriteCharactersViewController else {return}
+        navigationController?.pushViewController(vc, animated: true)
+        
+
+
+    }
+    
+  
 }

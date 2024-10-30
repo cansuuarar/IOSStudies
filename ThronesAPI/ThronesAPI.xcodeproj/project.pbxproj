@@ -22,6 +22,7 @@
 		0E570C822CC6A226006EA301 /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E570C812CC6A226006EA301 /* SwiftAlertView */; };
 		0EB2ADDA2CCEE7E500DB6F6E /* FavoriteCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2ADD92CCEE7E500DB6F6E /* FavoriteCharactersViewController.swift */; };
 		0EB2ADDC2CCEEBD500DB6F6E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2ADDB2CCEEBD500DB6F6E /* MainPageViewController.swift */; };
+		0EB2ADDF2CD14E6200DB6F6E /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2ADDE2CD14E6200DB6F6E /* KeychainManager.swift */; };
 		0EFE2CEF2CC7C5D700E50B7E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0EFE2CEE2CC7C5D700E50B7E /* SDWebImage */; };
 		0EFE2CF12CC7C5D700E50B7E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0EFE2CF02CC7C5D700E50B7E /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		0E570C7B2CC69CF4006EA301 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0EB2ADD92CCEE7E500DB6F6E /* FavoriteCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharactersViewController.swift; sourceTree = "<group>"; };
 		0EB2ADDB2CCEEBD500DB6F6E /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		0EB2ADDE2CD14E6200DB6F6E /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		0E570C5D2CC69BDF006EA301 /* ThronesAPI */ = {
 			isa = PBXGroup;
 			children = (
+				0EB2ADDD2CD14E4D00DB6F6E /* Data */,
 				0E570C752CC69C0A006EA301 /* ViewController */,
 				0E570C742CC69BFE006EA301 /* NetworkManager */,
 				0E570C732CC69BF2006EA301 /* View */,
@@ -126,6 +129,14 @@
 				0EB2ADDB2CCEEBD500DB6F6E /* MainPageViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0EB2ADDD2CD14E4D00DB6F6E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0EB2ADDE2CD14E6200DB6F6E /* KeychainManager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 				0E18C1E62CC7A90200A812A8 /* FullNameCell.swift in Sources */,
 				0E570C7A2CC69C5A006EA301 /* ContinentModel.swift in Sources */,
 				0E570C632CC69BDF006EA301 /* AllCharactersViewController.swift in Sources */,
+				0EB2ADDF2CD14E6200DB6F6E /* KeychainManager.swift in Sources */,
 				0E570C772CC69C2E006EA301 /* CharacterModel.swift in Sources */,
 				0E18C1E42CC7792A00A812A8 /* CharacterViewController.swift in Sources */,
 				0E570C5F2CC69BDF006EA301 /* AppDelegate.swift in Sources */,
