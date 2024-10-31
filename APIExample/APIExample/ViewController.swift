@@ -25,6 +25,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         getFavorite.isHidden = true
+        let notSortedArray = [3, 10, 5, 1, 8 ,12]
+        let sortedArray = notSortedArray.sorted()
+        print(sortedArray)
     }
     
     func refresh() {

@@ -24,9 +24,9 @@ final class NetworkManager {
                 decoder.decode([CharacterModel].self, from: data)
                 completionBlock(decoded)
             } catch {
-                SwiftAlertView.show(title: "ERROR",
-                                    message: "Failed to decode JSON",
-                                    buttonTitles: "OK", "Cancel")
+                SwiftAlertView.show(title: Constant.alertTitle,
+                                    message: Constant.messageFailedDecode,
+                                    buttonTitles: Constant.buttonTitleOk, Constant.buttonTitleCancel)
             }
         }
     }

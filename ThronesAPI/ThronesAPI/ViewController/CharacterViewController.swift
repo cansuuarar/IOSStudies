@@ -27,24 +27,24 @@ final class CharacterViewController: UIViewController {
         imageView.sd_setImage(with: URL(string: character?.imageUrl ?? ""), placeholderImage: UIImage(named: "placeholder"))
     }
     
-    @IBAction func favoriteCharacter(_ sender: Any) {
+    @IBAction private func favoriteCharacter(_ sender: Any) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(character)
             // UserDefaults
             UserDefaults.standard.set(data, forKey: "character")
-            let alert = UIAlertController(title: "Success", message: "Character saved successfuly!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alert = UIAlertController(title: Constant.alertTitleSuccess, message: Constant.messageSuccessUserdefaults, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Constant.buttonTitleOk, style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } catch {
-            SwiftAlertView.show(title: "ERROR",
-                                message: "Failed to save character",
-                                buttonTitles: "OK", "Cancel")
+            SwiftAlertView.show(title: Constant.alertTitle,
+                                message: Constant.messageFailedUserdefaults,
+                                buttonTitles: Constant.buttonTitleOk, Constant.buttonTitleCancel)
         }
     }
     
     // keychain
-    @IBAction func saveToKeyChain(_ sender: Any) {
+    @IBAction private func saveToKeyChain(_ sender: Any) {
         clearKeychain()
         do {
             let encoder = JSONEncoder()
@@ -58,8 +58,8 @@ final class CharacterViewController: UIViewController {
                 
                 SecItemDelete(query as CFDictionary)
                 SecItemAdd(query as CFDictionary, nil)
-                let alert = UIAlertController(title: "Success", message: "Character saved successfuly!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let alert = UIAlertController(title: Constant.alertTitleSuccess, message: Constant.messageSuccessKeychain, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: Constant.buttonTitleOk, style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
