@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		0E6E562A2CD36BFF002F8D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E56292CD36BFF002F8D19 /* AppDelegate.swift */; };
 		0E6E562C2CD36BFF002F8D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E562B2CD36BFF002F8D19 /* SceneDelegate.swift */; };
-		0E6E562E2CD36BFF002F8D19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E562D2CD36BFF002F8D19 /* ViewController.swift */; };
+		0E6E562E2CD36BFF002F8D19 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E562D2CD36BFF002F8D19 /* MainViewController.swift */; };
 		0E6E56312CD36BFF002F8D19 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E6E56302CD36BFF002F8D19 /* Base */; };
 		0E6E56332CD36C01002F8D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6E56322CD36C01002F8D19 /* Assets.xcassets */; };
 		0E6E56362CD36C01002F8D19 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E6E56352CD36C01002F8D19 /* Base */; };
+		0E6E56402CD37692002F8D19 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E563F2CD37692002F8D19 /* AppConstant.swift */; };
+		0E6E56422CD395EB002F8D19 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6E56412CD395EB002F8D19 /* ScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E6E56262CD36BFF002F8D19 /* CounterGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CounterGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6E56292CD36BFF002F8D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E6E562B2CD36BFF002F8D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0E6E562D2CD36BFF002F8D19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E6E562D2CD36BFF002F8D19 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0E6E56302CD36BFF002F8D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E6E56322CD36C01002F8D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E6E56352CD36C01002F8D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E6E56372CD36C01002F8D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E6E563F2CD37692002F8D19 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		0E6E56412CD395EB002F8D19 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,33 @@
 		0E6E56282CD36BFF002F8D19 /* CounterGame */ = {
 			isa = PBXGroup;
 			children = (
+				0E6E563E2CD37681002F8D19 /* Constant */,
+				0E6E563D2CD37664002F8D19 /* ViewController */,
 				0E6E56292CD36BFF002F8D19 /* AppDelegate.swift */,
 				0E6E562B2CD36BFF002F8D19 /* SceneDelegate.swift */,
-				0E6E562D2CD36BFF002F8D19 /* ViewController.swift */,
 				0E6E562F2CD36BFF002F8D19 /* Main.storyboard */,
 				0E6E56322CD36C01002F8D19 /* Assets.xcassets */,
 				0E6E56342CD36C01002F8D19 /* LaunchScreen.storyboard */,
 				0E6E56372CD36C01002F8D19 /* Info.plist */,
 			);
 			path = CounterGame;
+			sourceTree = "<group>";
+		};
+		0E6E563D2CD37664002F8D19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E6E562D2CD36BFF002F8D19 /* MainViewController.swift */,
+				0E6E56412CD395EB002F8D19 /* ScoreViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0E6E563E2CD37681002F8D19 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				0E6E563F2CD37692002F8D19 /* AppConstant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E6E562E2CD36BFF002F8D19 /* ViewController.swift in Sources */,
+				0E6E562E2CD36BFF002F8D19 /* MainViewController.swift in Sources */,
 				0E6E562A2CD36BFF002F8D19 /* AppDelegate.swift in Sources */,
+				0E6E56422CD395EB002F8D19 /* ScoreViewController.swift in Sources */,
 				0E6E562C2CD36BFF002F8D19 /* SceneDelegate.swift in Sources */,
+				0E6E56402CD37692002F8D19 /* AppConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +316,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CounterGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,13 +344,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CounterGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

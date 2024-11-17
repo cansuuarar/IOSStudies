@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IV9-KA-wF4">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calculate-->
+        <scene sceneID="fc6-ua-nDr">
+            <objects>
+                <viewController id="fMg-o4-wDE" customClass="CurrencyCalculateViewController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jhM-AD-N5n">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pvt-wF-0HG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Calculate" id="MfH-JT-bbf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vAq-18-t8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="314"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="qcR-JB-Vif">
+            <objects>
+                <viewController id="zNb-J9-rDg" customClass="CurrencyListViewController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z4Q-Vv-XNV">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s5X-gB-f4h">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyCell" id="GGe-Uk-xaT" customClass="CurrencyCell" customModule="CurrencyExchange" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="20.666666030883789"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GGe-Uk-xaT" id="fdG-e4-Wyq">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="20.666666030883789"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="114" translatesAutoresizingMaskIntoConstraints="NO" id="MHb-Sr-lU6">
+                                                    <rect key="frame" x="20" y="0.0" width="353" height="20.666666666666668"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkC-4N-LLB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="197.66666666666666" height="20.666666666666668"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxa-NV-LHD">
+                                                            <rect key="frame" x="311.66666666666669" y="0.0" width="41.333333333333314" height="20.666666666666668"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MHb-Sr-lU6" firstAttribute="top" secondItem="fdG-e4-Wyq" secondAttribute="top" id="LSE-DW-dZ1"/>
+                                                <constraint firstAttribute="bottom" secondItem="MHb-Sr-lU6" secondAttribute="bottom" id="jjj-qH-a0W"/>
+                                                <constraint firstAttribute="trailing" secondItem="MHb-Sr-lU6" secondAttribute="trailing" constant="20" id="jkE-1M-ERL"/>
+                                                <constraint firstItem="MHb-Sr-lU6" firstAttribute="leading" secondItem="fdG-e4-Wyq" secondAttribute="leading" constant="20" id="zMa-Nu-Ep2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currencyName" destination="zkC-4N-LLB" id="jWM-mS-Gix"/>
+                                            <outlet property="currencyValue" destination="sxa-NV-LHD" id="j0E-95-6K5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qGn-e8-VHU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s5X-gB-f4h" firstAttribute="leading" secondItem="qGn-e8-VHU" secondAttribute="leading" id="CFI-Ak-UFe"/>
+                            <constraint firstItem="qGn-e8-VHU" firstAttribute="bottom" secondItem="s5X-gB-f4h" secondAttribute="bottom" id="CPA-hT-HEW"/>
+                            <constraint firstItem="s5X-gB-f4h" firstAttribute="top" secondItem="qGn-e8-VHU" secondAttribute="top" id="cGP-0o-fE3"/>
+                            <constraint firstItem="qGn-e8-VHU" firstAttribute="trailing" secondItem="s5X-gB-f4h" secondAttribute="trailing" id="nz8-zl-6ld"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="List" id="FgI-Ta-I0q"/>
+                    <connections>
+                        <outlet property="tableView" destination="s5X-gB-f4h" id="egz-vr-VqW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s0y-t6-98L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1979.3893129770991" y="-293.66197183098592"/>
+        </scene>
+        <!--Currency Tab Bar Controller-->
+        <scene sceneID="98E-uy-yfM">
+            <objects>
+                <tabBarController id="IV9-KA-wF4" customClass="CurrencyTabBarController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="807-JY-Wa0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zNb-J9-rDg" kind="relationship" relationship="viewControllers" id="YtE-ZW-XCo"/>
+                        <segue destination="fMg-o4-wDE" kind="relationship" relationship="viewControllers" id="a7D-xt-1Bo"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ixs-ze-gBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="12"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

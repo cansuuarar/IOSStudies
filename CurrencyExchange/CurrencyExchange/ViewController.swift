@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  CounterGame
+//  CurrencyExchange
 //
-//  Created by CANSU ARAR on 31.10.2024.
+//  Created by CANSU ARAR on 15.11.2024.
 //
 
 import UIKit
