@@ -15,21 +15,19 @@ final class NetworkManager {
     
     func getCurrencies(completionBlock: @escaping (Currency) -> Void) {
         let url = NetworkManager.BASE_URL
+        
         AF.request(url).response { response in
             let decoder = JSONDecoder()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"  // JSON'daki tarih formatı
-            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            //print("Response: \(response.debugDescription)")
             do {
                 guard let data = response.data else { return }
                 let decoded = try
                 decoder.decode(Currency.self, from: data)
                 completionBlock(decoded)
+                print("Decoded Currency: \(decoded)")
             }
-            catch {
-                print("Hata: \(error.localizedDescription)")
-                SwiftAlertView.show(title: "Error", message: "Veri çözümleme hatası", buttonTitles: "OK", "CANCEL")
-                
+            catch let decodingError {
+                    print("Decoding error: \(decodingError)")
             }
         }
     }

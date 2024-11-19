@@ -7,8 +7,8 @@
 
 import UIKit
 
-class CurrencyCell: UITableViewCell {
-    
+final class CurrencyCell: UITableViewCell {
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var currencyValue: UILabel!
+    @IBOutlet weak var favButton: UIButton!
 }

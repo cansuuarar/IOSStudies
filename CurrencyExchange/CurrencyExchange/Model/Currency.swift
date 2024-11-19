@@ -8,11 +8,11 @@
 import Foundation
 
 final class Currency: Codable {
-    var date: Date
-    var currencyType: [String: Double]
+    var date: String
+    var typeCurrencies: [String: Double]
     
     enum CodingKeys: String, CodingKey {
-            case currencyType
-            case date
-        }
+        case date
+        case typeCurrencies = "try" // "try" anahtarını "tryCurrencies" olarak map ediyoruz
+    }
 }

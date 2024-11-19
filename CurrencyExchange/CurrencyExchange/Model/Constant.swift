@@ -7,10 +7,11 @@
 
 import Foundation
 
-class Constant {
-    static var mainCurrencies = ["all",
-        "ang"
-        /*"ars",
+final class Constant {
+    static let mainCurrencies = [
+        "all",
+        "ang",
+        "ars",
         "ats",
         "aud",
         "azm",
@@ -28,8 +29,14 @@ class Constant {
         "usd",
         "zar",
         "zwl"
-         */
     ]
     
-   
+    static let alertTitle = "ERROR"
+    static let alertTitleSuccess = "SUCCESS"
+    static let messageSuccessUserdefaults = "Currency saved successfuly userdefaults!"
+    static let messageSuccessKeychain = "Currency saved successfuly Keychain!"
+    static let messageFailedDecode = "Failed to decode JSON"
+    static let messageFailedUserdefaults = "Failed to save Currency userdefaults"
+    static let buttonTitleOk = "OK"
+    static let buttonTitleCancel = "Cancel"
 }

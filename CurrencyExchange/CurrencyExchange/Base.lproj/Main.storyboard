@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calculate-->
+        <!--Currency Calculate View Controller-->
         <scene sceneID="fc6-ua-nDr">
             <objects>
                 <viewController id="fMg-o4-wDE" customClass="CurrencyCalculateViewController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,13 +18,13 @@
                         <viewLayoutGuide key="safeArea" id="pvt-wF-0HG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calculate" id="MfH-JT-bbf"/>
+                    <navigationItem key="navigationItem" id="aG1-rR-cjT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAq-18-t8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="314"/>
+            <point key="canvasLocation" x="3832.8244274809158" y="313.38028169014086"/>
         </scene>
-        <!--List-->
+        <!--Currency List View Controller-->
         <scene sceneID="qcR-JB-Vif">
             <objects>
                 <viewController id="zNb-J9-rDg" customClass="CurrencyListViewController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,66 +33,137 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s5X-gB-f4h">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="566"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyCell" id="GGe-Uk-xaT" customClass="CurrencyCell" customModule="CurrencyExchange" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="20.666666030883789"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyCell" id="GGe-Uk-xaT" customClass="CurrencyCell" customModule="CurrencyExchange" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="34.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GGe-Uk-xaT" id="fdG-e4-Wyq">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="20.666666030883789"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="34.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="114" translatesAutoresizingMaskIntoConstraints="NO" id="MHb-Sr-lU6">
-                                                    <rect key="frame" x="20" y="0.0" width="353" height="20.666666666666668"/>
+                                                    <rect key="frame" x="30" y="0.0" width="333" height="34.666666666666664"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkC-4N-LLB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="197.66666666666666" height="20.666666666666668"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkC-4N-LLB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="34.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxa-NV-LHD">
-                                                            <rect key="frame" x="311.66666666666669" y="0.0" width="41.333333333333314" height="20.666666666666668"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxa-NV-LHD">
+                                                            <rect key="frame" x="155.33333333333334" y="0.0" width="41.333333333333343" height="34.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ld-6J-0dp">
+                                                            <rect key="frame" x="310.66666666666669" y="0.0" width="22.333333333333314" height="34.666666666666664"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="22.333333333333314" id="n2W-sv-RGb"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="favoriteCurrency:" destination="zNb-J9-rDg" eventType="touchUpInside" id="nrS-KG-wPQ"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="MHb-Sr-lU6" firstAttribute="top" secondItem="fdG-e4-Wyq" secondAttribute="top" id="LSE-DW-dZ1"/>
-                                                <constraint firstAttribute="bottom" secondItem="MHb-Sr-lU6" secondAttribute="bottom" id="jjj-qH-a0W"/>
-                                                <constraint firstAttribute="trailing" secondItem="MHb-Sr-lU6" secondAttribute="trailing" constant="20" id="jkE-1M-ERL"/>
-                                                <constraint firstItem="MHb-Sr-lU6" firstAttribute="leading" secondItem="fdG-e4-Wyq" secondAttribute="leading" constant="20" id="zMa-Nu-Ep2"/>
+                                                <constraint firstAttribute="trailing" secondItem="MHb-Sr-lU6" secondAttribute="trailing" constant="30" id="YaQ-qp-oeX"/>
+                                                <constraint firstItem="MHb-Sr-lU6" firstAttribute="leading" secondItem="fdG-e4-Wyq" secondAttribute="leading" constant="30" id="Yj7-MI-Uld"/>
+                                                <constraint firstItem="MHb-Sr-lU6" firstAttribute="top" secondItem="fdG-e4-Wyq" secondAttribute="top" id="cc8-hl-9WU"/>
+                                                <constraint firstAttribute="bottom" secondItem="MHb-Sr-lU6" secondAttribute="bottom" id="pAL-7f-pmW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="currencyName" destination="zkC-4N-LLB" id="jWM-mS-Gix"/>
                                             <outlet property="currencyValue" destination="sxa-NV-LHD" id="j0E-95-6K5"/>
+                                            <outlet property="favButton" destination="7ld-6J-0dp" id="tXl-On-QQ1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8K-Oc-jWt">
+                                <rect key="frame" x="279" y="76" width="81" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="listFavs"/>
+                                <connections>
+                                    <action selector="listFavoriteCurrencyButton:" destination="zNb-J9-rDg" eventType="touchUpInside" id="H7a-w7-oGd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V9-JX-a1B">
+                                <rect key="frame" x="20" y="122.99999999999999" width="353" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qGn-e8-VHU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9V9-JX-a1B" firstAttribute="leading" secondItem="qGn-e8-VHU" secondAttribute="leading" constant="20" id="8Rx-FD-HNN"/>
                             <constraint firstItem="s5X-gB-f4h" firstAttribute="leading" secondItem="qGn-e8-VHU" secondAttribute="leading" id="CFI-Ak-UFe"/>
                             <constraint firstItem="qGn-e8-VHU" firstAttribute="bottom" secondItem="s5X-gB-f4h" secondAttribute="bottom" id="CPA-hT-HEW"/>
-                            <constraint firstItem="s5X-gB-f4h" firstAttribute="top" secondItem="qGn-e8-VHU" secondAttribute="top" id="cGP-0o-fE3"/>
+                            <constraint firstItem="s5X-gB-f4h" firstAttribute="top" secondItem="qGn-e8-VHU" secondAttribute="top" constant="100" id="Mgx-uA-gIo"/>
+                            <constraint firstItem="9V9-JX-a1B" firstAttribute="top" secondItem="qGn-e8-VHU" secondAttribute="top" constant="20" id="bCX-1Z-eUk"/>
                             <constraint firstItem="qGn-e8-VHU" firstAttribute="trailing" secondItem="s5X-gB-f4h" secondAttribute="trailing" id="nz8-zl-6ld"/>
+                            <constraint firstItem="qGn-e8-VHU" firstAttribute="trailing" secondItem="9V9-JX-a1B" secondAttribute="trailing" constant="20" id="vrk-im-0Pb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" id="FgI-Ta-I0q"/>
+                    <navigationItem key="navigationItem" id="zJG-gd-Zas"/>
                     <connections>
+                        <outlet property="dateLabel" destination="9V9-JX-a1B" id="BTx-d5-idV"/>
                         <outlet property="tableView" destination="s5X-gB-f4h" id="egz-vr-VqW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0y-t6-98L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1979.3893129770991" y="-293.66197183098592"/>
+            <point key="canvasLocation" x="3832.8244274809158" y="-293.66197183098592"/>
+        </scene>
+        <!--List Favorite Controller-->
+        <scene sceneID="rld-ZZ-3B0">
+            <objects>
+                <viewController storyboardIdentifier="favList" id="VD0-Zp-GbA" customClass="ListFavoriteController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2xr-h5-x3M">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currencyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CG0-tc-9BR">
+                                <rect key="frame" x="20" y="159" width="353" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObH-0K-Yoa">
+                                <rect key="frame" x="20" y="241" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ydW-D7-fhQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CG0-tc-9BR" firstAttribute="leading" secondItem="ydW-D7-fhQ" secondAttribute="leading" constant="20" id="PT4-Md-b2Z"/>
+                            <constraint firstItem="ydW-D7-fhQ" firstAttribute="trailing" secondItem="CG0-tc-9BR" secondAttribute="trailing" constant="20" id="PvX-Qw-aX3"/>
+                            <constraint firstItem="CG0-tc-9BR" firstAttribute="top" secondItem="ydW-D7-fhQ" secondAttribute="top" constant="100" id="ugj-Jd-wNm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MDl-p9-UFt"/>
+                    <connections>
+                        <outlet property="currencyNameLabel" destination="CG0-tc-9BR" id="Fvf-Dn-xW1"/>
+                        <outlet property="dateLabel" destination="ObH-0K-Yoa" id="sjS-BF-QYg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIs-ft-Ppn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3011" y="-849"/>
         </scene>
         <!--Currency Tab Bar Controller-->
         <scene sceneID="98E-uy-yfM">
@@ -104,16 +175,55 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="zNb-J9-rDg" kind="relationship" relationship="viewControllers" id="YtE-ZW-XCo"/>
-                        <segue destination="fMg-o4-wDE" kind="relationship" relationship="viewControllers" id="a7D-xt-1Bo"/>
+                        <segue destination="t3H-fY-Y9C" kind="relationship" relationship="viewControllers" id="YtE-ZW-XCo"/>
+                        <segue destination="MWu-ug-922" kind="relationship" relationship="viewControllers" id="a7D-xt-1Bo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixs-ze-gBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1075" y="12"/>
         </scene>
+        <!--List-->
+        <scene sceneID="F0L-sq-6FR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t3H-fY-Y9C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" id="FgI-Ta-I0q"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5j0-D3-oX5">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zNb-J9-rDg" kind="relationship" relationship="rootViewController" id="uLy-xn-b9E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vkc-CM-Okm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1979.3893129770991" y="-293.66197183098592"/>
+        </scene>
+        <!--Calculate-->
+        <scene sceneID="NSy-YJ-J3d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MWu-ug-922" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calculate" id="MfH-JT-bbf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pQL-f7-3Uf">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fMg-o4-wDE" kind="relationship" relationship="rootViewController" id="xSC-bS-jJ6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yhk-V5-nRW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2906.1068702290077" y="313.38028169014086"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
