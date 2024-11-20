@@ -10,7 +10,7 @@ import Alamofire
 import SwiftAlertView
 
 final class NetworkManager {
-    static let BASE_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/try.json"
+    private static let BASE_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/try.json"
     static let shared = NetworkManager()
     
     func getCurrencies(completionBlock: @escaping (Currency) -> Void) {

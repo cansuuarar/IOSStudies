@@ -8,8 +8,8 @@
 import Foundation
 
 final class Currency: Codable {
-    var date: String
-    var typeCurrencies: [String: Double]
+    let date: String
+    let typeCurrencies: [String: Double]
     
     enum CodingKeys: String, CodingKey {
         case date

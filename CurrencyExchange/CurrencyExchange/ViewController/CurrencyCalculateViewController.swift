@@ -45,7 +45,6 @@ class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, U
         Constant.mainCurrencies.count
     }
     
-    //her satırda gösterilecek metni belirler, delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         Constant.mainCurrencies[row].uppercased()
     }
@@ -53,7 +52,6 @@ class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, U
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         calculateTargetCurrency()
     }
-    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == amountEnteredTextField {
@@ -69,13 +67,9 @@ class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, U
         let selectedIndex = targetCurrencyPickerView.selectedRow(inComponent: 0)
         let selectedCurrencyName = Constant.mainCurrencies[selectedIndex]
         
-        // filter bir array döndürüyor.
-        //currency?.typeCurrencies.keys.filter( $0 == selectedCurrencyName )
         guard let currency = currency?.typeCurrencies.keys.first(where: { $0 == selectedCurrencyName }) else { return }
         let value = self.currency?.typeCurrencies[currency]
         
-       // resultAmount.text = String(format: "%.2f", (enteredAmount * (value ?? 0.0)))
         resultAmount.text = String(format: "%.2f", (enteredAmount * (value ?? 0.0)))
-
     }
 }

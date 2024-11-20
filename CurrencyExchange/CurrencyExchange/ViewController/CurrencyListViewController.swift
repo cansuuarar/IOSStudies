@@ -24,9 +24,11 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
                 self.currency = currency
                 self.lastUpdateDateLabel.text = "Last update date: " + currency.date
                 // filteredElements değişkenine atama işlemini NetworkManager çağrısından sonra, yani API verisi geldikten sonra
-                self.filteredElements = currency.typeCurrencies.filter { Constant.mainCurrencies.contains($0.key) }
-                //.map { (key: $0.key.uppercased(), value: $0.value) }
-                    .reduce(into: [:]) { $0[$1.key.uppercased()] = $1.value }
+                
+                for element in currency.typeCurrencies.filter({ Constant.mainCurrencies.contains($0.key) }) {
+                    self.filteredElements[element.key.uppercased()] = element.value
+                }
+                
                 self.tableView.reloadData() // Data güncellendikten sonra tabloyu yeniliyoruz
             }
             self.navigationController?.setNavigationBarHidden(true, animated: true)
