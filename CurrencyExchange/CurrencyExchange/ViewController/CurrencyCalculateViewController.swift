@@ -7,23 +7,33 @@
 
 import UIKit
 
-class CurrencyCalculateViewController: UIViewController {
+class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    // to do: text field e non char girilmesine izin verilmeyecek.
+    @IBOutlet weak var amountEnteredTextField: UITextField!
+    @IBOutlet weak var resultAmount: UILabel!
+    @IBOutlet weak var baseCurrency: UILabel!
+    @IBOutlet weak var targetCurrencyPickerView: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        targetCurrencyPickerView.delegate = self
+        targetCurrencyPickerView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
     }
-    */
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        Constant.mainCurrencies.count
+    }
+    
+    //her satırda gösterilecek metni belirler, delegate
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        Constant.mainCurrencies[row].uppercased()
+    }
+
+   
 
 }
