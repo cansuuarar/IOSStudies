@@ -11,27 +11,28 @@ import SwiftAlertView
 final class CurrencyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var lastUpdateDateLabel: UILabel!
+    
     private var currency: Currency?
     private var filteredElements: [String: Double] = [:]
     private var selectedDictionary: [String : Double] = [:]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkManager.shared.getCurrencies(completionBlock: { currency in
             DispatchQueue.main.async {
                 self.currency = currency
-                self.dateLabel.text = currency.date
+                self.lastUpdateDateLabel.text = "Last update date: " + currency.date
                 // filteredElements değişkenine atama işlemini NetworkManager çağrısından sonra, yani API verisi geldikten sonra
                 self.filteredElements = currency.typeCurrencies.filter { Constant.mainCurrencies.contains($0.key) }
                 //.map { (key: $0.key.uppercased(), value: $0.value) }
                     .reduce(into: [:]) { $0[$1.key.uppercased()] = $1.value }
                 self.tableView.reloadData() // Data güncellendikten sonra tabloyu yeniliyoruz
-                
             }
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         })
-        
+        GradientHelper.applyGradient(to: view)
+
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -43,6 +44,9 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "currencyCell", for: indexPath) as! CurrencyCell
+        
+        GradientHelper.applyGradient(to: cell.contentView)
+        
         let elementsArray = Array(filteredElements)
         let element = elementsArray[indexPath.row]
         cell.currencyName.text = element.key
@@ -90,6 +94,7 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
         guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             .instantiateViewController(withIdentifier: "favList") as? ListFavoriteController else {return}
         navigationController?.pushViewController(vc, animated: true)
+        
         
         guard let data = UserDefaults.standard.object(forKey: "currency") as? [String: Double] else { return }
         vc.typeCurrency = data

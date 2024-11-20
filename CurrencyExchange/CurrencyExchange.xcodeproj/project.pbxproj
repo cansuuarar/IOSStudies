@@ -23,6 +23,7 @@
 		0E6E56A52CE779F4002F8D19 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E6E56A42CE779F4002F8D19 /* Base */; };
 		0E6E56A72CE779F6002F8D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6E56A62CE779F6002F8D19 /* Assets.xcassets */; };
 		0E6E56AA2CE779F6002F8D19 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E6E56A92CE779F6002F8D19 /* Base */; };
+		0E79BE832CEE68B6000EF69C /* GradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79BE822CEE68B6000EF69C /* GradientHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0E6E56A62CE779F6002F8D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E6E56A92CE779F6002F8D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E6E56AB2CE779F6002F8D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E79BE822CEE68B6000EF69C /* GradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,6 @@
 		0E4AD18D2CE8FE13000BB6EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0E4AD1A62CE94A59000BB6EE /* Constant.swift */,
 				0E4AD1912CE8FF57000BB6EE /* Currency.swift */,
 			);
 			path = Model;
@@ -89,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4AD1A42CE93E4C000BB6EE /* CurrencyCell.swift */,
+				0E79BE822CEE68B6000EF69C /* GradientHelper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +114,7 @@
 		0E6E569C2CE779F4002F8D19 /* CurrencyExchange */ = {
 			isa = PBXGroup;
 			children = (
+				0E79BE802CEDF202000EF69C /* Constant */,
 				0E4AD19F2CE93D48000BB6EE /* View */,
 				0E4AD18E2CE8FE19000BB6EE /* NetworkManager */,
 				0E4AD18D2CE8FE13000BB6EE /* Model */,
@@ -125,6 +128,14 @@
 				0E6E56AB2CE779F6002F8D19 /* Info.plist */,
 			);
 			path = CurrencyExchange;
+			sourceTree = "<group>";
+		};
+		0E79BE802CEDF202000EF69C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				0E4AD1A62CE94A59000BB6EE /* Constant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4AD1982CE90EC4000BB6EE /* CurrencyCalculateViewController.swift in Sources */,
+				0E79BE832CEE68B6000EF69C /* GradientHelper.swift in Sources */,
 				0E4AD1902CE8FE74000BB6EE /* NetworkManager.swift in Sources */,
 				0E4AD1A92CEB9401000BB6EE /* ListFavoriteController.swift in Sources */,
 				0E4AD1962CE90EA6000BB6EE /* CurrencyListViewController.swift in Sources */,
