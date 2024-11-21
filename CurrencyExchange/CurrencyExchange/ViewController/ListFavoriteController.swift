@@ -7,17 +7,15 @@
 
 import UIKit
 
-class ListFavoriteController: UIViewController {
+final class ListFavoriteController: UIViewController {
 
-    @IBOutlet weak var currencyNameLabel: UILabel!
+    @IBOutlet private weak var currencyNameLabel: UILabel!
     
-    var typeCurrency: [String: Double]?
+    var currencyName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        currencyNameLabel.text = typeCurrency?.keys.first
+        currencyNameLabel.text = currencyName
         GradientHelper.applyGradient(to: view)
     }
-    
 }

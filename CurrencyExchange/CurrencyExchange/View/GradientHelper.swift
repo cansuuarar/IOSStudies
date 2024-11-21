@@ -8,7 +8,6 @@
 import UIKit
 
 class GradientHelper {
-    
     private static let startColor = UIColor.blue
     private static let endColor = UIColor.green
     

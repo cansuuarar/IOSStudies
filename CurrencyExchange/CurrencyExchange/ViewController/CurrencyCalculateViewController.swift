@@ -7,16 +7,15 @@
 
 import UIKit
 
-class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+final class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    @IBOutlet weak var amountEnteredTextField: UITextField!
-    @IBOutlet weak var baseCurrency: UILabel!
-    @IBOutlet weak var targetCurrencyPickerView: UIPickerView!
-    @IBOutlet weak var resultAmount: UITextField!
+    @IBOutlet private weak var amountEnteredTextField: UITextField!
+    @IBOutlet private weak var baseCurrency: UILabel!
+    @IBOutlet private weak var targetCurrencyPickerView: UIPickerView!
+    @IBOutlet private weak var resultAmount: UITextField!
     
     private var currency: Currency?
     private var calculatedAmount: Double?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +25,14 @@ class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, U
                 self.baseCurrency.text = Currency.CodingKeys.typeCurrencies.rawValue.uppercased()
             }
         })
-       
+    
         
         GradientHelper.applyGradient(to: view)
         
         targetCurrencyPickerView.delegate = self
         targetCurrencyPickerView.dataSource = self
         amountEnteredTextField.delegate = self
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         amountEnteredTextField.addTarget(self, action: #selector(calculateTargetCurrency), for: .editingDidEnd)
     }
     
@@ -73,3 +72,7 @@ class CurrencyCalculateViewController: UIViewController, UIPickerViewDelegate, U
         resultAmount.text = String(format: "%.2f", (enteredAmount * (value ?? 0.0)))
     }
 }
+
+
+// delegate: ne yapar? datasource: ne vardır?
+

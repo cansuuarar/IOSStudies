@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E46C1952CEF133100048B37 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46C1942CEF133100048B37 /* CurrencyModel.swift */; };
 		0E4AD1902CE8FE74000BB6EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AD18F2CE8FE74000BB6EE /* NetworkManager.swift */; };
 		0E4AD1922CE8FF57000BB6EE /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AD1912CE8FF57000BB6EE /* Currency.swift */; };
 		0E4AD1942CE90E80000BB6EE /* CurrencyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AD1932CE90E80000BB6EE /* CurrencyTabBarController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E46C1942CEF133100048B37 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		0E4AD18F2CE8FE74000BB6EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0E4AD1912CE8FF57000BB6EE /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		0E4AD1932CE90E80000BB6EE /* CurrencyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTabBarController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4AD1912CE8FF57000BB6EE /* Currency.swift */,
+				0E46C1942CEF133100048B37 /* CurrencyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				0E4AD1922CE8FF57000BB6EE /* Currency.swift in Sources */,
 				0E6E56A22CE779F4002F8D19 /* ViewController.swift in Sources */,
 				0E6E569E2CE779F4002F8D19 /* AppDelegate.swift in Sources */,
+				0E46C1952CEF133100048B37 /* CurrencyModel.swift in Sources */,
 				0E4AD1A52CE93E4C000BB6EE /* CurrencyCell.swift in Sources */,
 				0E4AD1A72CE94A59000BB6EE /* Constant.swift in Sources */,
 				0E4AD1942CE90E80000BB6EE /* CurrencyTabBarController.swift in Sources */,

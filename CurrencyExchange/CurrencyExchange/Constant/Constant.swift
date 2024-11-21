@@ -30,11 +30,11 @@ final class Constant {
         "zar",
         "zwl"
     ]
+    // TODO: main currencies enum ile..
     
-    static let alertTitle = "ERROR"
+    static let alertTitleError = "ERROR"
     static let alertTitleSuccess = "SUCCESS"
     static let messageSuccessUserdefaults = "Currency saved successfuly userdefaults!"
-    static let messageSuccessKeychain = "Currency saved successfuly Keychain!"
     static let messageFailedDecode = "Failed to decode JSON"
     static let messageFailedUserdefaults = "Failed to save Currency userdefaults"
     static let buttonTitleOk = "OK"
