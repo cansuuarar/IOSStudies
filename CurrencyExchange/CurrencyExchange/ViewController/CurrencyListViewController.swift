@@ -8,7 +8,7 @@
 import UIKit
 import SwiftAlertView
 
-final class CurrencyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+final class CurrencyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CurrencyCellDelegate{
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var lastUpdateDateLabel: UILabel!
@@ -25,6 +25,7 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
                 // filteredElements değişkenine atama işlemini NetworkManager çağrısından sonra, yani API verisi geldikten sonra
                 
                 for element in currency.typeCurrencies.filter({ Constant.mainCurrencies.contains($0.key) }) {
+                    
                     let currencyModel = CurrencyModel()
                     currencyModel.currencyName = element.key
                     currencyModel.currencyValue = element.value
@@ -54,34 +55,17 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
         cell.currencyName.text = element.currencyName
         cell.currencyValue.text = String(format: "%.2f", element.currencyValue ?? 0)
         
+        cell.currencyCellDelegate = self
+        cell.currencyModel = element
+        
         return cell
     }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedElement = filteredElements[indexPath.row]
-    }
-    
-    @IBAction private func favoriteCurrency(_ sender: Any) {
         
-        var favCurrency = UserDefaults.standard.string(forKey: "currency")
-        if favCurrency != selectedElement?.currencyName {
-            UserDefaults.standard.set(selectedElement?.currencyName, forKey: "currency")
-
-        }
     
-        if let data = UserDefaults.standard.string(forKey: "currency"), !data.isEmpty  {
-            let alert = UIAlertController(title: Constant.alertTitleSuccess, message: Constant.messageSuccessUserdefaults, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: Constant.buttonTitleOk, style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: Constant.alertTitleError, message: Constant.messageFailedUserdefaults, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: Constant.buttonTitleOk, style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+    func favoriteSelected(selectedCurrency: CurrencyModel) {
+        UserDefaults.standard.set(selectedCurrency.currencyName, forKey: "currency")
     }
-    
-    
+
     
     @IBAction private func listFavoriteCurrencyButton(_ sender: Any) {
         guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main)
@@ -93,5 +77,19 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
         vc.currencyName = data
     }
 }
+
+
+/*
+ 
+ 
+ ödev:
+ Yeni bir apiden delegate pattern ile çalış.
+ İki use case düşün.
+
+ View-object, object-object olabilir araştır.
+ Refactoring gurudan bak.
+ View ve cell arası değil.
+ */
+
 
 

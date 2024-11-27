@@ -74,5 +74,5 @@ final class CurrencyCalculateViewController: UIViewController, UIPickerViewDeleg
 }
 
 
-// delegate: ne yapar? datasource: ne vardır?
+
 

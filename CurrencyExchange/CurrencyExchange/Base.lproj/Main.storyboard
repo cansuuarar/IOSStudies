@@ -126,7 +126,7 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
                                                             <connections>
-                                                                <action selector="favoriteCurrency:" destination="zNb-J9-rDg" eventType="touchUpInside" id="nrS-KG-wPQ"/>
+                                                                <action selector="favoriteButtonPressed:" destination="GGe-Uk-xaT" eventType="touchUpInside" id="NPV-xb-Gzk"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -260,7 +260,6 @@
         <!--List-->
         <scene sceneID="F0L-sq-6FR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vkc-CM-Okm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t3H-fY-Y9C" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" id="FgI-Ta-I0q"/>
                     <toolbarItems/>
@@ -273,6 +272,7 @@
                         <segue destination="zNb-J9-rDg" kind="relationship" relationship="rootViewController" id="uLy-xn-b9E"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vkc-CM-Okm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1979.3893129770991" y="-293.66197183098592"/>
         </scene>
