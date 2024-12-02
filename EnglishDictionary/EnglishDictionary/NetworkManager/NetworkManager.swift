@@ -17,12 +17,12 @@ class NetworkManager {
     //private static let versionAPI = "v2"
     //private static let entry = "entries"
     //private static let languageKey = "en"
+
     
     func getWordDefinitions(word: String, completionBlock: @escaping ([DictionaryApiResponse]) -> Void) {
         let url = NetworkManager.BASE_URL + word
         AF.request(url).response { response in
             let decoder = JSONDecoder()
-            
             do {
                 guard let data = response.data else { return }
                 let decoded = try

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var wordTextField: UITextField! {
         didSet {
@@ -23,13 +23,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         callAPIButton.addTarget(self, action: #selector(getWord), for: .touchUpInside)
-        
+        wordTextField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     @objc func getWord() {
         guard let word = wordTextField.text, !word.isEmpty else { return }
+        wordTextField.endEditing(true)
         
         NetworkManager.shared.getWordDefinitions(word: word, completionBlock: { apiResponseArray in
             DispatchQueue.main.async {
@@ -64,7 +65,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        wordTextField.endEditing(true)
+        return true
+    }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        wordTextField.text = ""
+    }
 }
 
 
