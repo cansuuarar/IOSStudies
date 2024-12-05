@@ -10,6 +10,9 @@
 		0E410CCF2CF63D6900E6A420 /* DictionaryApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E410CCE2CF63D6900E6A420 /* DictionaryApiResponse.swift */; };
 		0E410CD12CF6450E00E6A420 /* DictionaryTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E410CD02CF6450E00E6A420 /* DictionaryTabBarController.swift */; };
 		0E410CD42CF6485A00E6A420 /* DefinitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E410CD32CF6485A00E6A420 /* DefinitionCell.swift */; };
+		0E410CD62CFDCD9A00E6A420 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E410CD52CFDCD9A00E6A420 /* ExampleViewController.swift */; };
+		0E410CF82CFE65FA00E6A420 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E410CF72CFE65FA00E6A420 /* SettingsViewController.swift */; };
+		0E410D652D00642100E6A420 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E410D642D00642100E6A420 /* Colors.swift */; };
 		0E46C1C52CF25DB000048B37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46C1C42CF25DB000048B37 /* AppDelegate.swift */; };
 		0E46C1C72CF25DB000048B37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46C1C62CF25DB000048B37 /* SceneDelegate.swift */; };
 		0E46C1C92CF25DB000048B37 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46C1C82CF25DB000048B37 /* SearchViewController.swift */; };
@@ -29,6 +32,9 @@
 		0E410CCE2CF63D6900E6A420 /* DictionaryApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryApiResponse.swift; sourceTree = "<group>"; };
 		0E410CD02CF6450E00E6A420 /* DictionaryTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTabBarController.swift; sourceTree = "<group>"; };
 		0E410CD32CF6485A00E6A420 /* DefinitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionCell.swift; sourceTree = "<group>"; };
+		0E410CD52CFDCD9A00E6A420 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		0E410CF72CFE65FA00E6A420 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0E410D642D00642100E6A420 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0E46C1C12CF25DB000048B37 /* EnglishDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E46C1C42CF25DB000048B37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E46C1C62CF25DB000048B37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,13 +63,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E410CD22CF6483C00E6A420 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		0E46C1B82CF25DB000048B37 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +82,6 @@
 		0E46C1C32CF25DB000048B37 /* EnglishDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				0E410CD22CF6483C00E6A420 /* New Group */,
 				0E46C1DD2CF25E0E00048B37 /* NetworkManager */,
 				0E46C1DC2CF25E0500048B37 /* Model */,
 				0E46C1DB2CF25DFD00048B37 /* View */,
@@ -104,6 +102,8 @@
 			children = (
 				0E46C1C82CF25DB000048B37 /* SearchViewController.swift */,
 				0E410CD02CF6450E00E6A420 /* DictionaryTabBarController.swift */,
+				0E410CD52CFDCD9A00E6A420 /* ExampleViewController.swift */,
+				0E410CF72CFE65FA00E6A420 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -111,6 +111,7 @@
 		0E46C1DA2CF25DF600048B37 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				0E410D642D00642100E6A420 /* Colors.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -225,10 +226,13 @@
 				0E410CD42CF6485A00E6A420 /* DefinitionCell.swift in Sources */,
 				0E46C1C92CF25DB000048B37 /* SearchViewController.swift in Sources */,
 				0E46C1E32CF25F5300048B37 /* Phonetic.swift in Sources */,
+				0E410D652D00642100E6A420 /* Colors.swift in Sources */,
 				0E410CD12CF6450E00E6A420 /* DictionaryTabBarController.swift in Sources */,
 				0E46C1E12CF25E8100048B37 /* NetworkManager.swift in Sources */,
+				0E410CD62CFDCD9A00E6A420 /* ExampleViewController.swift in Sources */,
 				0E46C1E52CF2604C00048B37 /* Definition.swift in Sources */,
 				0E46C1C52CF25DB000048B37 /* AppDelegate.swift in Sources */,
+				0E410CF82CFE65FA00E6A420 /* SettingsViewController.swift in Sources */,
 				0E410CCF2CF63D6900E6A420 /* DictionaryApiResponse.swift in Sources */,
 				0E46C1C72CF25DB000048B37 /* SceneDelegate.swift in Sources */,
 				0E46C1E72CF2608C00048B37 /* Meaning.swift in Sources */,

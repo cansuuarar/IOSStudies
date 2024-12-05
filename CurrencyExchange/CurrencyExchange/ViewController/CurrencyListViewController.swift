@@ -14,7 +14,7 @@ final class CurrencyListViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet private weak var lastUpdateDateLabel: UILabel!
     
     private var filteredElements: [CurrencyModel] = []
-    private var selectedElement: CurrencyModel?
+    //private var selectedElement: CurrencyModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

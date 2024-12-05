@@ -8,7 +8,7 @@
 import Foundation
 
 struct Phonetic: Codable  {
-    var text: String?
-    var audio: String?
+    let text: String?
+    let audio: String?
     let license: License?
 }

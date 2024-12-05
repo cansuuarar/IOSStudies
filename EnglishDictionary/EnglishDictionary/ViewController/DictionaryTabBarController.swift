@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DictionaryTabBarController: UITabBarController {
-
+final class DictionaryTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
+
+// UI VİEW CONTROLLER PROPERTYSİ VAR. BAK

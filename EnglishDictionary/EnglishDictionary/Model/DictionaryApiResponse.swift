@@ -8,10 +8,10 @@
 import Foundation
 
 struct DictionaryApiResponse: Codable {
-    var word: String?
-    var phonetic: String?
-    var phonetics: [Phonetic]?
-    var origin: String?
-    var meanings: [Meaning]?
+    let word: String?
+    let phonetic: String?
+    let phonetics: [Phonetic]?
+    let origin: String?
+    let meanings: [Meaning]?
     let license: License?
 }
