@@ -7,8 +7,6 @@
 
 import UIKit
 
-protocol exampleDelegate {
-}
 
 final class ExampleViewController: UIViewController{
     @IBOutlet weak var exampleLabel: UILabel!
