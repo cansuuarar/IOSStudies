@@ -26,6 +26,7 @@
 		0E6041782D09FB9C00E82C44 /* WordExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6041772D09FB9C00E82C44 /* WordExampleViewController.swift */; };
 		0E60417B2D0A032700E82C44 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60417A2D0A032700E82C44 /* SettingsViewController.swift */; };
 		0E60417D2D0A04F600E82C44 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60417C2D0A04F600E82C44 /* Colors.swift */; };
+		0E60417F2D0AB9F000E82C44 /* WordExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60417E2D0AB9F000E82C44 /* WordExampleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0E6041772D09FB9C00E82C44 /* WordExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExampleViewController.swift; sourceTree = "<group>"; };
 		0E60417A2D0A032700E82C44 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0E60417C2D0A04F600E82C44 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0E60417E2D0AB9F000E82C44 /* WordExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExampleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		0E60415C2D0861CD00E82C44 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0E60417E2D0AB9F000E82C44 /* WordExampleViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				0E6041702D0870DE00E82C44 /* WordSearchViewController.swift in Sources */,
 				0E6041782D09FB9C00E82C44 /* WordExampleViewController.swift in Sources */,
 				0E6041682D08676F00E82C44 /* DictionaryNetworkManager.swift in Sources */,
+				0E60417F2D0AB9F000E82C44 /* WordExampleViewModel.swift in Sources */,
 				0E6041742D08E2FB00E82C44 /* MeaningManager.swift in Sources */,
 				0E60415F2D08657600E82C44 /* Word.swift in Sources */,
 				0E6041402D0860E900E82C44 /* AppDelegate.swift in Sources */,

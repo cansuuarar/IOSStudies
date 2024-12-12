@@ -10,15 +10,20 @@ import UIKit
 final class WordExampleViewController: UIViewController {
 
     @IBOutlet private weak var exampleLabel: UILabel!
-    var example: String?
+    private var wordExampleViewModel = WordExampleViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        exampleLabel.text = example ?? "Oops, There is no example provided."
+        exampleLabel.text = wordExampleViewModel.getExample()
+        //exampleLabel.text = example ?? "Oops, There is no example provided."
         
         exampleLabel.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         exampleLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    func setVM(wordExampleViewModel: WordExampleViewModel) {
+        self.wordExampleViewModel = wordExampleViewModel
     }
     
     @objc func labelTapped() {

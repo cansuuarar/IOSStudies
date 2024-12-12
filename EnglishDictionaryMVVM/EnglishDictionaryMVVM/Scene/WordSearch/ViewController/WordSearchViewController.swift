@@ -46,7 +46,6 @@ final class WordSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: guard let ile yapılacak.
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "definitionCell", for: indexPath) as? WordDefinitionCell else { return UITableViewCell()}
         let element =  MeaningManager.shared.meanings[indexPath.section].definitions?[indexPath.row].definition ?? "Oops, There is no definition provided."
         cell.definitionLabel.text = element
@@ -54,9 +53,18 @@ final class WordSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedDefinitionExample = MeaningManager.shared.meanings[indexPath.section].definitions?[indexPath.row].example
+        let selectedDefinitionExample = MeaningManager.shared.meanings[indexPath.section].definitions?[indexPath.row].example ?? "Oops, There is no example provided."
         guard let exampleVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "exampleVC") as? WordExampleViewController else { return }
-        exampleVC.example = selectedDefinitionExample
+        //exampleVC.wordExampleViewModel.setExample(example: selectedDefinitionExample)
+        //let wordExampleViewModel = WordExampleViewModel()
+        //exampleVC.setVM(wordExampleViewModel: wordExampleViewModel)
+        //wordExampleViewModel.setExample(example: selectedDefinitionExample)
+        
+        var wordExampleVM = WordExampleViewModel(example: selectedDefinitionExample)
+        exampleVC.setVM(wordExampleViewModel: wordExampleVM)
+        
         navigationController?.pushViewController(exampleVC, animated: true)
     }    
 }
+
+
