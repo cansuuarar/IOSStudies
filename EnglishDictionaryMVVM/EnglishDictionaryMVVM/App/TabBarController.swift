@@ -7,23 +7,37 @@
 
 import UIKit
 
-class TabBarController: UITabBarController, SettingsColorChangeDelegate {
-
+class TabBarController: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification), name: .myNotification, object: nil)
+    }
+    
+    @objc func handleNotification(notification: Notification) {
         
-        //let tabBarController = UITabBarController()
-        //tabBarController.viewControllers = [WordSearchViewController(), SettingsViewController()]
+        if let userInfo = notification.userInfo,
+           let colorData = userInfo["color"] as? Data,
+           let color = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData) {
+            
+            guard let viewControllers = self.viewControllers, viewControllers.count > 0 else { return }
+ 
+            guard let firstVC = self.viewControllers?[0] else { return }
+            guard let navigationController = firstVC as? UINavigationController,
+                  let firstViewController = navigationController.viewControllers[0] as? WordSearchViewController else { return firstVC.view.backgroundColor = color}
+            firstViewController.view.backgroundColor = color
+        }
+        
+ 
+       
         
     }
     
-    func changeColor(color: UIColor) {
-        //self.viewControllers?[0].view.backgroundColor = color
-        // tab bar controller üzerinden mi yoksa view controller üzerinden mi erişmek gerek, araştır.
-        //
-    }
+    // tab bar controller üzerinden mi yoksa view controller üzerinden mi erişmek gerek, araştır.
+    // settingvc'den notification gönder, tab bar controllerda yakala ve change color apply et...
+    
+    // projeyi viper a çevir
+    // projede bir de firebase entegrasyonu yap. firebase araştırıp analtik kısmını uygulamaya ekle, viper ya da mvvm projesine olabilir.
+    // event ler.
     
 }
-
-
-// settingvc'den notification gönder, tab bar controllerda yakala ve change color apply et...

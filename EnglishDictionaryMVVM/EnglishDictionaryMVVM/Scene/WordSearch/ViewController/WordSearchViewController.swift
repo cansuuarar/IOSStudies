@@ -18,8 +18,20 @@ final class WordSearchViewController: UIViewController, UITableViewDelegate, UIT
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.searchDelegate = self
+       
+        //NotificationCenter.default.addObserver(self, selector: #selector(handleNotification), name: .myNotification, object: nil)
     }
     
+    @objc func handleNotification(notification: Notification) {
+        if let userInfo = notification.userInfo,
+               let colorData = userInfo["color"] as? Data,
+           let color = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData) {
+            
+            self.view.backgroundColor = color
+            
+        }
+           
+    }
     
     func wordInfoLoaded() {
         tableView.reloadData()
@@ -60,7 +72,7 @@ final class WordSearchViewController: UIViewController, UITableViewDelegate, UIT
         //exampleVC.setVM(wordExampleViewModel: wordExampleViewModel)
         //wordExampleViewModel.setExample(example: selectedDefinitionExample)
         
-        var wordExampleVM = WordExampleViewModel(example: selectedDefinitionExample)
+        let wordExampleVM = WordExampleViewModel(example: selectedDefinitionExample)
         exampleVC.setVM(wordExampleViewModel: wordExampleVM)
         
         navigationController?.pushViewController(exampleVC, animated: true)

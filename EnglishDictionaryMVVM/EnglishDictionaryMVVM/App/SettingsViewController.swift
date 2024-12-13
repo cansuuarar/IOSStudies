@@ -12,10 +12,9 @@ protocol SettingsColorChangeDelegate: AnyObject {
 }
 
 final class SettingsViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSource{
-
-    @IBOutlet private weak var colorPickerView: UIPickerView!
-    weak var colorDelegate: SettingsColorChangeDelegate?
     
+    @IBOutlet private weak var colorPickerView: UIPickerView!
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         colorPickerView.delegate = self
@@ -38,10 +37,15 @@ final class SettingsViewController: UIViewController ,UIPickerViewDelegate, UIPi
         let selectedColorIndex = colorPickerView.selectedRow(inComponent: 0)
         let selectedColor = Colors.allCases[selectedColorIndex]
         let color = selectedColor.uiColor
-        colorDelegate?.changeColor(color: color)
-        navigationController?.popViewController(animated: true)
+        if let colorData = try? NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) {
+            NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["color": colorData])
+        }
+        //navigationController?.popViewController(animated: true)
     }
     
 }
 
+extension Notification.Name {
+    static let myNotification = Notification.Name("ChangeColornNotification")
+}
 

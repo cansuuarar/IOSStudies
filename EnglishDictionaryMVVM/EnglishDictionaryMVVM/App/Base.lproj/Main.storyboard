@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="3020.6106870229005" y="-1004.2253521126761"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--app-->
         <scene sceneID="8q1-xq-NLv">
             <objects>
-                <tabBarController id="Kel-6K-2Z2" customClass="TabBarController" customModule="EnglishDictionaryMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController title="app" id="Kel-6K-2Z2" customClass="TabBarController" customModule="EnglishDictionaryMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="csT-YW-FvA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
