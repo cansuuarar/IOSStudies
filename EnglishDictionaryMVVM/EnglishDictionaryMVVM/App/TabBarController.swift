@@ -7,31 +7,32 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotification), name: .myNotification, object: nil)
     }
     
-    @objc func handleNotification(notification: Notification) {
-        
+    @objc private func handleNotification(notification: Notification) {
         if let userInfo = notification.userInfo,
            let colorData = userInfo["color"] as? Data,
            let color = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData) {
             
-            guard let viewControllers = self.viewControllers, viewControllers.count > 0 else { return }
- 
-            guard let firstVC = self.viewControllers?[0] else { return }
-            guard let navigationController = firstVC as? UINavigationController,
-                  let firstViewController = navigationController.viewControllers[0] as? WordSearchViewController else { return firstVC.view.backgroundColor = color}
-            firstViewController.view.backgroundColor = color
+           guard let viewControllers = viewControllers, viewControllers.count > 0 else { return }
+            
+            for vc in viewControllers {
+                if let navController = vc as? UINavigationController {
+                    for innerVC in navController.viewControllers {
+                        innerVC.view.backgroundColor = color
+                    }
+                } else {
+                    vc.view.backgroundColor = color
+                }
+            }
         }
-        
- 
-       
-        
     }
+    
     
     // tab bar controller üzerinden mi yoksa view controller üzerinden mi erişmek gerek, araştır.
     // settingvc'den notification gönder, tab bar controllerda yakala ve change color apply et...

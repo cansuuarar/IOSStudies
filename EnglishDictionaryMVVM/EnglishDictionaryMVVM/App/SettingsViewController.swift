@@ -40,7 +40,6 @@ final class SettingsViewController: UIViewController ,UIPickerViewDelegate, UIPi
         if let colorData = try? NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) {
             NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["color": colorData])
         }
-        //navigationController?.popViewController(animated: true)
     }
     
 }

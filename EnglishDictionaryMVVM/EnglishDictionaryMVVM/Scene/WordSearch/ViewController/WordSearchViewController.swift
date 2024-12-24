@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class WordSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WordSearchViewModelDelegate {
     
@@ -18,6 +19,9 @@ final class WordSearchViewController: UIViewController, UITableViewDelegate, UIT
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.searchDelegate = self
+        
+        title = "Dictionary"
+        navigationItem.hidesBackButton = true
        
         //NotificationCenter.default.addObserver(self, selector: #selector(handleNotification), name: .myNotification, object: nil)
     }
@@ -43,6 +47,19 @@ final class WordSearchViewController: UIViewController, UITableViewDelegate, UIT
         viewModel.fetchWordMeaning(word: word)
     }
     
+    
+    @IBAction func logOutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            self.navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            let alertController = UIAlertController(title: "Warning",
+                                                    message: "\(String(describing: signOutError.localizedDescription))",
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         MeaningManager.shared.meanings.count
