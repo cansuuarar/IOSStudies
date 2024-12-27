@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4VF-OI-g7X">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="KsG-I0-M1V">
+            <objects>
+                <viewController id="PcR-Qs-r09" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dwi-Ju-tq0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9Bc-uf-3Us"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="jID-TO-wvE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDt-Rk-FEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="239"/>
+        </scene>
+        <!--Word Search View Controller-->
+        <scene sceneID="KVS-xY-BO0">
+            <objects>
+                <viewController storyboardIdentifier="WordSearchViewController" id="PfT-ir-nn9" customClass="WordSearchViewController" customModule="EnglihsDictionaryVIPER" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jbE-VX-LSs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter the word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kmm-da-kCf">
+                                <rect key="frame" x="16" y="141" width="263" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Ehv-9h-8yB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65j-eI-bha">
+                                <rect key="frame" x="333" y="141" width="50" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="PfT-ir-nn9" eventType="touchUpInside" id="SZY-W9-7kf"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qKf-Us-X8i">
+                                <rect key="frame" x="0.0" y="196" width="393" height="573"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BWt-og-LoS">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BWt-og-LoS" id="ovq-7e-Iaj">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m4J-bM-MyS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qKf-Us-X8i" firstAttribute="top" secondItem="Kmm-da-kCf" secondAttribute="bottom" constant="21" id="1tz-lW-6Yl"/>
+                            <constraint firstItem="65j-eI-bha" firstAttribute="leading" secondItem="Kmm-da-kCf" secondAttribute="trailing" constant="54" id="FfQ-aM-LJf"/>
+                            <constraint firstItem="Kmm-da-kCf" firstAttribute="centerY" secondItem="65j-eI-bha" secondAttribute="centerY" id="GRU-q8-EbJ"/>
+                            <constraint firstItem="qKf-Us-X8i" firstAttribute="bottom" secondItem="m4J-bM-MyS" secondAttribute="bottom" id="PXd-pg-zvj"/>
+                            <constraint firstItem="Kmm-da-kCf" firstAttribute="leading" secondItem="jbE-VX-LSs" secondAttribute="leadingMargin" id="e2B-3Y-8xa"/>
+                            <constraint firstAttribute="trailing" secondItem="qKf-Us-X8i" secondAttribute="trailing" id="iEv-7G-t0J"/>
+                            <constraint firstItem="qKf-Us-X8i" firstAttribute="leading" secondItem="jbE-VX-LSs" secondAttribute="leading" id="ipL-T0-5at"/>
+                            <constraint firstItem="Kmm-da-kCf" firstAttribute="top" secondItem="m4J-bM-MyS" secondAttribute="top" constant="38" id="mZp-r0-KU7"/>
+                            <constraint firstItem="m4J-bM-MyS" firstAttribute="trailing" secondItem="65j-eI-bha" secondAttribute="trailing" constant="10" id="snI-jW-8p7"/>
+                            <constraint firstItem="Kmm-da-kCf" firstAttribute="top" secondItem="65j-eI-bha" secondAttribute="top" id="xQx-VA-xXo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kbr-nZ-jEn"/>
+                    <connections>
+                        <outlet property="tableView" destination="qKf-Us-X8i" id="hI5-ph-Jyh"/>
+                        <outlet property="wordTextField" destination="Kmm-da-kCf" id="pob-8N-0s4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ur0-Td-MkZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758.0152671755725" y="-509.15492957746483"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="sUV-e6-xxJ">
+            <objects>
+                <tabBarController id="4VF-OI-g7X" customClass="TabBarController" customModule="EnglihsDictionaryVIPER" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sfM-Zt-MvG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fi1-rN-57v" kind="relationship" relationship="viewControllers" id="GX5-O4-10D"/>
+                        <segue destination="PcR-Qs-r09" kind="relationship" relationship="viewControllers" id="JNj-XK-OB6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vEC-PL-iDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74" y="-206"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="KS5-Je-x1h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fi1-rN-57v" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 1" id="bKR-5z-knV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xQX-f1-sJU">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PfT-ir-nn9" kind="relationship" relationship="rootViewController" id="50b-fD-hpP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vl5-pi-Lv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831.29770992366412" y="-509.15492957746483"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

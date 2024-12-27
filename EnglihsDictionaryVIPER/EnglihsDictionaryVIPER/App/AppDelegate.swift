@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ToDoApp
+//  EnglihsDictionaryVIPER
 //
-//  Created by CANSU ARAR on 24.12.2024.
+//  Created by CANSU ARAR on 25.12.2024.
 //
 
 import UIKit
@@ -10,11 +10,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        RootRouter().presentWordScreen(in: window!)
         return true
     }
 

@@ -1,20 +1,30 @@
 //
-//  WordSearchViewModel.swift
-//  EnglishDictionaryMVVM
+//  WordSearchInteractor.swift
+//  EnglihsDictionaryVIPER
 //
-//  Created by CANSU ARAR on 10.12.2024.
+//  Created by CANSU ARAR on 25.12.2024.
 //
 
 import Foundation
+// object
+// protocol
+// ref to presenter
 
-protocol WordSearchViewModelDelegate: AnyObject {
+protocol WordSearchInteractorProtocol {
+    var presenter: WordSearchPresenterProtocol? { get set }
+    
+    func getWordMeaning(word: String)
+}
+
+protocol WordSearchInteractorDelegate: AnyObject {
     func wordInfoLoaded()
 }
 
-class WordSearchViewModel {
-    weak var searchDelegate: WordSearchViewModelDelegate?
+final class WordSearchInteractor: WordSearchInteractorProtocol {
+    var presenter: WordSearchPresenterProtocol?
+    weak var searchDelegate: WordSearchInteractorDelegate?
     
-    func fetchWordMeaning(word: String) {
+    func getWordMeaning(word: String) {
         DictionaryNetworkManager.shared.getWordMeaning(word: word, completionBlock: { apiResponseArray in
             DispatchQueue.main.async {
                 MeaningManager.shared.meanings.removeAll()
@@ -27,9 +37,10 @@ class WordSearchViewModel {
                     }
                 }
                 self.searchDelegate?.wordInfoLoaded()
-                
             }
         }
         )
     }
+    
+    
 }
