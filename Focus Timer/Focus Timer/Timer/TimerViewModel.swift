@@ -121,7 +121,7 @@ final class TimerViewModel {
     func playSound() {
         guard let savedSound = UserDefaults.standard.string(forKey: Key.soundKey.rawValue) else { return }
         do {
-            guard let url = Bundle.main.url(forResource: savedSound, withExtension: Extension.sound.rawValue) else { return }
+            guard let url = Bundle.main.url(forResource: savedSound, withExtension: Extension.soundMp3.rawValue) else { return }
             if audioPlayer?.isPlaying == true {
                 audioPlayer?.stop()
             }

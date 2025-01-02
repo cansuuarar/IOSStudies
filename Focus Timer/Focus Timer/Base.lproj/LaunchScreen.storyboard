@@ -15,20 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hy8-ZR-Eqj">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hy8-ZR-Eqj" secondAttribute="trailing" id="KXE-IC-UpP"/>
-                            <constraint firstAttribute="bottom" secondItem="hy8-ZR-Eqj" secondAttribute="bottom" constant="34" id="i9F-Cy-osy"/>
-                            <constraint firstItem="hy8-ZR-Eqj" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="m0t-8h-MmN"/>
-                            <constraint firstItem="hy8-ZR-Eqj" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="nYY-SK-9gs"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

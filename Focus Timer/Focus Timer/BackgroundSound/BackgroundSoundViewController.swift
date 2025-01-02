@@ -36,10 +36,12 @@ final class BackgroundSoundViewController: UIViewController, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SoundManager.shared.sound = Sound.allSounds[indexPath.row].name
+        /*
+         SoundManager.shared.sound = Sound.allSounds[indexPath.row].name
         guard let savedSound = SoundManager.shared.sound else { return }
         backgroundViewModel.playSound(name: savedSound)
-    }
+    
+         */}
 }
 
 

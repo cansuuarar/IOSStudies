@@ -6,5 +6,5 @@
 //
 
 enum Extension: String {
-    case sound = "mp3"
+    case soundMp3 = "mp3"
 }
