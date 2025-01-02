@@ -8,14 +8,39 @@
 import UIKit
 
 final class BackgroundCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-
-    //cell storyboard üzerinden yüklendiği için bu metot ile ek ayarlar yapabiliriz.
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        imageView.layer.cornerRadius = 12
+    
+    var imageView = UIImageView()
+    var label = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true // taşan kısımları kırpar
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 12
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 1 // Tek satır
+        
+        contentView.addSubview(imageView)
+        contentView.addSubview(label)
+        
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8).isActive = true  // Yüksekliğin %80'i
+        
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
+        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

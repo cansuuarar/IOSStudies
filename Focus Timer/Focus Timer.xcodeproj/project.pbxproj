@@ -13,6 +13,7 @@
 		0E1DFF0E2D1EF808005E045A /* Library.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E1DFF082D1EF808005E045A /* Library.mp3 */; };
 		0E1DFF112D1F05FA005E045A /* Bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E1DFF102D1F05FA005E045A /* Bird.mp3 */; };
 		0ED0AFEA2D1E04180052859D /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0ED0AFE92D1E04180052859D /* beep.mp3 */; };
+		0EFEF0402D27204E003E7C3D /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0EFEF03F2D27204E003E7C3D /* wind.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		0E1DFF0A2D1EF808005E045A /* Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rain.mp3; sourceTree = "<group>"; };
 		0E1DFF102D1F05FA005E045A /* Bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bird.mp3; sourceTree = "<group>"; };
 		0ED0AFE92D1E04180052859D /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		0EFEF03F2D27204E003E7C3D /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -106,6 +108,7 @@
 				0ED0AFE92D1E04180052859D /* beep.mp3 */,
 				0E1DFF072D1EF808005E045A /* Cafe.mp3 */,
 				0E1DFF102D1F05FA005E045A /* Bird.mp3 */,
+				0EFEF03F2D27204E003E7C3D /* wind.mp3 */,
 				0E1DFF082D1EF808005E045A /* Library.mp3 */,
 				0E1DFF092D1EF808005E045A /* Ocean.mp3 */,
 				0E1DFF0A2D1EF808005E045A /* Rain.mp3 */,
@@ -251,6 +254,7 @@
 				0E1DFF112D1F05FA005E045A /* Bird.mp3 in Resources */,
 				0E1DFF0B2D1EF808005E045A /* Ocean.mp3 in Resources */,
 				0E1DFF0C2D1EF808005E045A /* Rain.mp3 in Resources */,
+				0EFEF0402D27204E003E7C3D /* wind.mp3 in Resources */,
 				0E1DFF0D2D1EF808005E045A /* Cafe.mp3 in Resources */,
 				0E1DFF0E2D1EF808005E045A /* Library.mp3 in Resources */,
 				0ED0AFEA2D1E04180052859D /* beep.mp3 in Resources */,

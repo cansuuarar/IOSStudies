@@ -4,7 +4,7 @@
 //
 //  Created by CANSU ARAR on 2.01.2025.
 //
-
+import UIKit
 import AVFoundation
 
 protocol BackgroundViewModelDelegate: AnyObject {}
@@ -30,8 +30,11 @@ final class BackgroundViewModel {
         audioPlayer?.currentTime = 0
     }
     
-    func saveToUserdefaults(soundName: String) {
-        //UserDefaults.standard.set(soundName, forKey: Key.soundKey.rawValue)
+    func saveToUserdefaults(backgroundModel: BackgroundModel) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(backgroundModel) {
+            UserDefaults.standard.set(encoded, forKey: "backgroundModelKey")
+        }
     }
 }
 
