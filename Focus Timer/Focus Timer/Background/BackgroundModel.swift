@@ -16,10 +16,10 @@ struct BackgroundModel: Codable {
     }
         
     static let backgroundData: [BackgroundModel] = [
-        BackgroundModel(soundName: "Rain", imageData: UIImage(named: "rain2")!.jpegData(compressionQuality: 1.0)!),
+        BackgroundModel(soundName: "Rain", imageData: UIImage(named: "rain")!.jpegData(compressionQuality: 1.0)!),
         BackgroundModel(soundName: "Cafe", imageData: UIImage(named: "cafe")!.jpegData(compressionQuality: 1.0)!),
-        BackgroundModel(soundName: "Bird", imageData: UIImage(named: "bird")!.jpegData(compressionQuality: 1.0)!),
-        BackgroundModel(soundName: "Library", imageData: UIImage(named: "library")!.jpegData(compressionQuality: 1.0)!),
+        BackgroundModel(soundName: "Bird", imageData: UIImage(named: "forest")!.jpegData(compressionQuality: 1.0)!),
+        BackgroundModel(soundName: "Library", imageData: UIImage(named: "library2")!.jpegData(compressionQuality: 1.0)!),
         BackgroundModel(soundName: "Ocean", imageData: UIImage(named: "ocean")!.jpegData(compressionQuality: 1.0)!),
         BackgroundModel(soundName: "wind", imageData: UIImage(named: "wind")!.jpegData(compressionQuality: 1.0)!)
     ]

@@ -87,6 +87,11 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         guard let savedBackground =  BackgroundManager.shared.backgroundModel else { return }
         backgroundViewModel.saveToUserdefaults(backgroundModel: savedBackground)
         backgroundViewModel.stopSound()
+        guard let image = savedBackground.image else { return }
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["image": image])
+
+        }
         self.tabBarController?.selectedIndex = 0
     }
 }
@@ -99,3 +104,7 @@ extension BackgroundViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+
+extension Notification.Name {
+    static let myNotification = Notification.Name("ChangeBackgrounImageNotification")
+}

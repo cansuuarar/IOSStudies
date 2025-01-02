@@ -6,5 +6,5 @@
 //
 
 enum Key: String {
-    case soundKey = "savedSound"
+    case soundKey = "backgroundModelKey"
 }

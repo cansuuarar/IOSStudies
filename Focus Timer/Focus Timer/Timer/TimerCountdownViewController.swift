@@ -12,6 +12,7 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet weak var progressView: CircularProgressBar!
+    private var backgroundImageView: UIImageView!
     private var viewModel = TimerViewModel()
     private var progress: Float = 0.0
     
@@ -20,6 +21,22 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
         setupView()
         viewModel.timerDelegate = self
         updateTimeLabel()
+        setupBackgroundImageView()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: .myNotification, object: nil)
+        
+    }
+    
+    private func setupBackgroundImageView() {
+        // UIImageView'i programatik olarak ekliyoruz
+        backgroundImageView = UIImageView(frame: self.view.bounds)
+        backgroundImageView.contentMode = .scaleAspectFill // Görselin doğru şekilde ekranı kaplamasını sağlar
+        backgroundImageView.clipsToBounds = true // Görselin taşmaması için
+        
+        // UIImageView'ı ekliyoruz
+        self.view.addSubview(backgroundImageView)
+        
+        // Diğer tüm objelerin üstünde olmaması için arka plana gönderiyoruz
+        self.view.sendSubviewToBack(backgroundImageView)
     }
     
     func setupView() {
@@ -27,6 +44,7 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
         progressView.layer.masksToBounds = true
         progressView.clipsToBounds = true
     }
+    
     
     @IBAction func increaseMinutes(_ sender: Any) {
         viewModel.increaseMinute()
@@ -63,5 +81,17 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
     @IBAction private func stopButtonPressed(_ sender: UIButton) {
         viewModel.stopTimer()
         sender.setImage(UIImage(systemName: "stop"), for: .normal)
+    }
+    
+    @objc func handleNotification(_ notification: Notification) {
+        DispatchQueue.main.async {
+            // Background image view'in arka plana gelmesini sağlıyoruz
+            if let userInfo = notification.userInfo, let image = userInfo["image"] as? UIImage {
+                // Arka planı değiştirmek için gelen image'ı kullanıyoruz
+                self.backgroundImageView.image = image
+            }
+            
+            
+        }
     }
 }
