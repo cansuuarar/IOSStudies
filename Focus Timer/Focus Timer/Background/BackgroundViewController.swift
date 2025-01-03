@@ -41,7 +41,7 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         
         view.addSubview(collectionView)
         
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(hex: "#F9F9F9")
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
@@ -92,7 +92,7 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
             NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["image": image])
 
         }
-        self.tabBarController?.selectedIndex = 0
+       self.tabBarController?.selectedIndex = 1
     }
 }
 

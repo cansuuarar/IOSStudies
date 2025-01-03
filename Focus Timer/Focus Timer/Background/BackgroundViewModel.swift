@@ -18,7 +18,7 @@ final class BackgroundViewModel {
             audioPlayer?.stop()
             audioPlayer?.currentTime = 0
         }
-        guard let url = Bundle.main.url(forResource: name, withExtension: Extension.soundMp3.rawValue) else { return }
+        guard let url = Bundle.main.url(forResource: name, withExtension: AudioExtension.soundMp3.rawValue) else { return }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.play()

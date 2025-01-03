@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import CoreImage
+
 
 final class TimerCountdownViewController: UIViewController, TimerViewModelDelegate {
     @IBOutlet private weak var timerLabel: UILabel!
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var startButton: UIButton!
-    @IBOutlet weak var progressView: CircularProgressBar!
+    @IBOutlet private var progressView: CircularProgressBar!
     private var backgroundImageView: UIImageView!
     private var viewModel = TimerViewModel()
     private var progress: Float = 0.0
@@ -23,26 +25,34 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
         updateTimeLabel()
         setupBackgroundImageView()
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: .myNotification, object: nil)
-        
+        applyGradientBackground()
     }
     
     private func setupBackgroundImageView() {
-        // UIImageView'i programatik olarak ekliyoruz
-        backgroundImageView = UIImageView(frame: self.view.bounds)
+        backgroundImageView = UIImageView(frame: view.bounds)
         backgroundImageView.contentMode = .scaleAspectFill // Görselin doğru şekilde ekranı kaplamasını sağlar
         backgroundImageView.clipsToBounds = true // Görselin taşmaması için
         
-        // UIImageView'ı ekliyoruz
-        self.view.addSubview(backgroundImageView)
-        
-        // Diğer tüm objelerin üstünde olmaması için arka plana gönderiyoruz
-        self.view.sendSubviewToBack(backgroundImageView)
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
     }
     
     func setupView() {
         progressView.layer.cornerRadius = progressView.bounds.width / 2
         progressView.layer.masksToBounds = true
         progressView.clipsToBounds = true
+    }
+    
+    func applyGradientBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            UIColor(hex: "#D3C1A3").cgColor, // Akaroa
+            UIColor(hex: "#B3B4AE").cgColor  // Gray Nickel
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0) // Sol üstten başlar
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)   // Sağ alt köşeye kadar
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     
@@ -85,13 +95,11 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
     
     @objc func handleNotification(_ notification: Notification) {
         DispatchQueue.main.async {
-            // Background image view'in arka plana gelmesini sağlıyoruz
             if let userInfo = notification.userInfo, let image = userInfo["image"] as? UIImage {
-                // Arka planı değiştirmek için gelen image'ı kullanıyoruz
                 self.backgroundImageView.image = image
             }
-            
-            
         }
     }
 }
+
+

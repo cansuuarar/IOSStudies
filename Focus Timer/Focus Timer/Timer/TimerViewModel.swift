@@ -124,7 +124,7 @@ final class TimerViewModel {
         guard let decodedModel = try? decoder.decode(BackgroundModel.self, from: savedBackgroundModel) else { return }
         
         do {
-            guard let url = Bundle.main.url(forResource: decodedModel.soundName, withExtension: Extension.soundMp3.rawValue) else { return }
+            guard let url = Bundle.main.url(forResource: decodedModel.soundName, withExtension: AudioExtension.soundMp3.rawValue) else { return }
             if audioPlayer?.isPlaying == true {
                 audioPlayer?.stop()
             }
