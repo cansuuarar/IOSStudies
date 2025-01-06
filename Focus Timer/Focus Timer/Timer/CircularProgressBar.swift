@@ -36,7 +36,7 @@ final class CircularProgressBar: UIView {
         
         // Arka plan (track) katmanı
         trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor(hex: "#B3B4AE").cgColor
+        trackLayer.strokeColor = UIColor(hex: "#E6E6E6").cgColor
         trackLayer.lineWidth = 8
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = .round

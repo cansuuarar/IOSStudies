@@ -26,30 +26,30 @@ final class TimerViewModel {
     }
     
     func increaseMinute() {
-        if Constant.shared.minute < 55 && Constant.shared.hour < 1 {
-            Constant.shared.minute += 5
+        if Constant.minute < 55 && Constant.hour < 1 {
+            Constant.minute += 5
             timerDelegate?.updateTimeLabel()
-        } else if Constant.shared.minute == 55 {
-            Constant.shared.hour = 1
-            Constant.shared.minute = 0
+        } else if Constant.minute == 55 {
+            Constant.hour = 1
+            Constant.minute = 0
             timerDelegate?.updateTimeLabel()
         }
     }
     
     func decreaseMinute() {
-        if Constant.shared.minute > 10 && Constant.shared.minute < 60 {
-            Constant.shared.minute -= 5
+        if Constant.minute > 10 && Constant.minute < 60 {
+            Constant.minute -= 5
             timerDelegate?.updateTimeLabel()
-        } else if Constant.shared.hour == 1 {
-            Constant.shared.minute = 55
-            Constant.shared.hour = 0
+        } else if Constant.hour == 1 {
+            Constant.minute = 55
+            Constant.hour = 0
             timerDelegate?.updateTimeLabel()
         }
     }
     
     func callTimer() {
         if !didStart {
-            totalTimeInSeconds = (Constant.shared.hour * 3600) + (Constant.shared.minute * 60) + Constant.shared.second
+            totalTimeInSeconds = (Constant.hour * 3600) + (Constant.minute * 60) + Constant.second
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
             didStart = true
         }
@@ -57,23 +57,23 @@ final class TimerViewModel {
     
     @objc private func fireTimer() {
         elapsedTime += 1
-        if Constant.shared.second > 0 {
-            Constant.shared.second -= 1
+        if Constant.second > 0 {
+            Constant.second -= 1
         }
-        else if Constant.shared.minute > 0 && Constant.shared.second == 0 {
-            Constant.shared.minute -= 1
-            Constant.shared.second = 59
+        else if Constant.minute > 0 && Constant.second == 0 {
+            Constant.minute -= 1
+            Constant.second = 59
         }
-        else if Constant.shared.hour > 0 && Constant.shared.minute == 0 && Constant.shared.second == 0 {
-            Constant.shared.hour -= 1
-            Constant.shared.minute = 59
-            Constant.shared.second = 59
+        else if Constant.hour > 0 && Constant.minute == 0 && Constant.second == 0 {
+            Constant.hour -= 1
+            Constant.minute = 59
+            Constant.second = 59
         }
         timerDelegate?.updateTimeLabel()
         let progress = Float(elapsedTime) / Float(totalTimeInSeconds)
         timerDelegate?.updateCircularProgress(progress: progress)
         
-        if Constant.shared.hour == 0 && Constant.shared.minute == 0 && Constant.shared.second == 0 {
+        if Constant.hour == 0 && Constant.minute == 0 && Constant.second == 0 {
             timeOverPlaySound()
             stopTimer()
         }
@@ -81,9 +81,9 @@ final class TimerViewModel {
     
     func stopTimer() {
         timer.invalidate()
-        Constant.shared.hour = 0
-        Constant.shared.minute = 1
-        Constant.shared.second = 0
+        Constant.hour = 0
+        Constant.minute = 1
+        Constant.second = 0
         elapsedTime = 0
         didStart = false
         timerDelegate?.updateTimeLabel()
@@ -116,7 +116,6 @@ final class TimerViewModel {
             audioPlayer?.play()
         } catch {}
     }
-    
     
     func playSound() {
         guard let savedBackgroundModel = UserDefaults.standard.data(forKey: Key.soundKey.rawValue) else { return }

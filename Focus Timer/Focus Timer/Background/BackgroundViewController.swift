@@ -25,11 +25,11 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         setView()
+        applyGradientBackground()
+        //view.backgroundColor = UIColor(hex: "#DADEDF®")
     }
     
     private func setView() {
@@ -40,9 +40,8 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         navigationItem.leftBarButtonItem = leftBarButton
         
         view.addSubview(collectionView)
-        
-        collectionView.backgroundColor = UIColor(hex: "#F9F9F9")
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        collectionView.backgroundColor = .clear
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
@@ -52,7 +51,7 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         okButton.setTitle("OK", for: .normal)
         okButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         okButton.setTitleColor(.white, for: .normal)
-        okButton.backgroundColor = UIColor(hex: "#007AFF")
+        okButton.backgroundColor = UIColor(hex: "#B3B4AE")
         okButton.layer.cornerRadius = 8
         okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
         
@@ -61,6 +60,7 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         okButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         okButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         okButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
 
     }
     
@@ -90,16 +90,30 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         guard let image = savedBackground.image else { return }
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["image": image])
-
         }
        self.tabBarController?.selectedIndex = 1
     }
+    
+    func applyGradientBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+                UIColor(hex: "#f0f4f8").cgColor, // Daha açık bir Iron tonu
+                UIColor(hex: "#d6d2cf").cgColor, // Daha açık bir Chicago tonu
+                UIColor(hex: "#e0dedb").cgColor, // Daha açık bir Flint tonu
+                UIColor(hex: "#dad8d1").cgColor  // Daha açık bir Tapa tonu
+            ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0) // Sol üstten başlar
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)   // Sağ alt köşeye kadar
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
 }
 
 extension BackgroundViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthPerItem = collectionView.frame.width / 2.5 // Her hücre için genişlik
-        let heightPerItem = widthPerItem * 1.5 // Yükseklik genişliğin 1.5 katı (dikey dikdörtgen)
+        let heightPerItem = widthPerItem * 1.5 // dikdörtgen
         return CGSize(width: widthPerItem , height: heightPerItem )
     }
 }

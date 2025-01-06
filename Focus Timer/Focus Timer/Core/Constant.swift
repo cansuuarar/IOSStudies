@@ -8,12 +8,16 @@
 import Foundation
 
 final class Constant {
-    static let shared = Constant()
+    /*static let shared = Constant()
      var hour = 0
      var minute = 1
      var second = 0
     
     private init(){}
+     */
+    static var hour = 0
+    static var minute = 1
+    static var second = 0
 }
 
 

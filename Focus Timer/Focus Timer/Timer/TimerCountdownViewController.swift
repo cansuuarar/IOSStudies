@@ -30,8 +30,8 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
     
     private func setupBackgroundImageView() {
         backgroundImageView = UIImageView(frame: view.bounds)
-        backgroundImageView.contentMode = .scaleAspectFill // Görselin doğru şekilde ekranı kaplamasını sağlar
-        backgroundImageView.clipsToBounds = true // Görselin taşmaması için
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true 
         
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
@@ -67,7 +67,7 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
     func updateTimeLabel() {
         DispatchQueue.main.async { [weak self] in
             self?.timerLabel.text =
-            String(format:"%02i:%02i:%02i", Constant.shared.hour, Constant.shared.minute, Constant.shared.second)
+            String(format:"%02i:%02i:%02i", Constant.hour, Constant.minute, Constant.second)
         }
     }
     

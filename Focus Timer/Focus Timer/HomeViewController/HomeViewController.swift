@@ -17,6 +17,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel.setupVideoBackground(for: self.view, videoName: .mountain)
+        self.tabBarController?.tabBar.isHidden = true
         setupView()
         updateGreetingMessage()
         focusButton.addTarget(self, action: #selector(focusButtonStart), for: .touchUpInside)
@@ -65,8 +66,12 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func focusButtonStart() {
-        guard let timerVC = storyboard?.instantiateViewController(withIdentifier: "timerVC") as? TimerCountdownViewController else { return }
-        navigationController?.pushViewController(timerVC, animated: true)
+        let transitionOptions: UIView.AnimationOptions = [.transitionCrossDissolve]
+        UIView.transition(with: view, duration: 0.2, options: transitionOptions, animations: {
+            self.tabBarController?.selectedIndex = 1
+        }, completion: nil)
+        tabBarController?.tabBar.isHidden = false 
     }
+    
     
 }
