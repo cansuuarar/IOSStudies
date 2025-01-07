@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8C1D9F2D2DD4AE002D2A5A /* foggy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C1D9E2D2DD4AE002D2A5A /* foggy.mp4 */; };
+		0E8C1DA12D2DD7ED002D2A5A /* lake.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C1DA02D2DD7ED002D2A5A /* lake.mp4 */; };
+		0E8C1DA32D2DDCF1002D2A5A /* sky.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C1DA22D2DDCF1002D2A5A /* sky.mp4 */; };
+		0E8C1DA52D2DDD5E002D2A5A /* view.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C1DA42D2DDD5E002D2A5A /* view.mp4 */; };
+		0E8C1DA72D2DDE4E002D2A5A /* forest.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C1DA62D2DDE4E002D2A5A /* forest.mp4 */; };
+		0E8C1DA92D2DDF85002D2A5A /* amazon.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C1DA82D2DDF85002D2A5A /* amazon.mp4 */; };
 		0EB592CB2D287E4C00064931 /* mountain.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0EB592CA2D287E4C00064931 /* mountain.mp4 */; };
 		0EB592CD2D2B100400064931 /* Forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0EB592CC2D2B100400064931 /* Forest.mp3 */; };
 		0ED0AFEA2D1E04180052859D /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0ED0AFE92D1E04180052859D /* beep.mp3 */; };
@@ -38,6 +44,12 @@
 		0E0C67942D1B39B200533B14 /* Focus Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Focus Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0C67AA2D1B39B400533B14 /* Focus TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Focus TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0C67B42D1B39B400533B14 /* Focus TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Focus TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E8C1D9E2D2DD4AE002D2A5A /* foggy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = foggy.mp4; sourceTree = "<group>"; };
+		0E8C1DA02D2DD7ED002D2A5A /* lake.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lake.mp4; sourceTree = "<group>"; };
+		0E8C1DA22D2DDCF1002D2A5A /* sky.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sky.mp4; sourceTree = "<group>"; };
+		0E8C1DA42D2DDD5E002D2A5A /* view.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = view.mp4; sourceTree = "<group>"; };
+		0E8C1DA62D2DDE4E002D2A5A /* forest.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = forest.mp4; sourceTree = "<group>"; };
+		0E8C1DA82D2DDF85002D2A5A /* amazon.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = amazon.mp4; sourceTree = "<group>"; };
 		0EB592CA2D287E4C00064931 /* mountain.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mountain.mp4; sourceTree = "<group>"; };
 		0EB592CC2D2B100400064931 /* Forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Forest.mp3; sourceTree = "<group>"; };
 		0ED0AFE92D1E04180052859D /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
@@ -110,7 +122,13 @@
 				0ED0AFE92D1E04180052859D /* beep.mp3 */,
 				0EFEF0472D283245003E7C3D /* Cafe.mp3 */,
 				0EFEF0482D283245003E7C3D /* Library.mp3 */,
+				0E8C1DA02D2DD7ED002D2A5A /* lake.mp4 */,
 				0EFEF04A2D283245003E7C3D /* Ocean.mp3 */,
+				0E8C1D9E2D2DD4AE002D2A5A /* foggy.mp4 */,
+				0E8C1DA42D2DDD5E002D2A5A /* view.mp4 */,
+				0E8C1DA22D2DDCF1002D2A5A /* sky.mp4 */,
+				0E8C1DA62D2DDE4E002D2A5A /* forest.mp4 */,
+				0E8C1DA82D2DDF85002D2A5A /* amazon.mp4 */,
 				0EB592CC2D2B100400064931 /* Forest.mp3 */,
 				0EB592CA2D287E4C00064931 /* mountain.mp4 */,
 				0EFEF04B2D283245003E7C3D /* Rain.mp3 */,
@@ -254,13 +272,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E8C1D9F2D2DD4AE002D2A5A /* foggy.mp4 in Resources */,
 				0EFEF04D2D283245003E7C3D /* Ocean.mp3 in Resources */,
 				0EFEF04E2D283245003E7C3D /* Cafe.mp3 in Resources */,
 				0EFEF04F2D283245003E7C3D /* Rain.mp3 in Resources */,
 				0EFEF0502D283245003E7C3D /* Wind.mp3 in Resources */,
+				0E8C1DA12D2DD7ED002D2A5A /* lake.mp4 in Resources */,
+				0E8C1DA32D2DDCF1002D2A5A /* sky.mp4 in Resources */,
+				0E8C1DA92D2DDF85002D2A5A /* amazon.mp4 in Resources */,
 				0EB592CB2D287E4C00064931 /* mountain.mp4 in Resources */,
 				0EFEF0512D283245003E7C3D /* Library.mp3 in Resources */,
+				0E8C1DA72D2DDE4E002D2A5A /* forest.mp4 in Resources */,
 				0ED0AFEA2D1E04180052859D /* beep.mp3 in Resources */,
+				0E8C1DA52D2DDD5E002D2A5A /* view.mp4 in Resources */,
 				0EB592CD2D2B100400064931 /* Forest.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +355,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Focus Timer/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -359,7 +383,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Focus Timer/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (

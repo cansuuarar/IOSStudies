@@ -24,3 +24,6 @@ struct BackgroundModel: Codable {
         BackgroundModel(soundName: "Wind", imageData: UIImage(named: "Wind")!.jpegData(compressionQuality: 1.0)!)
     ]
 }
+
+// UIImage decodable protokolüne uymaz. bu sebeple data tipinde ele alıp init ederken uiimage'e dönüştürülür.
+// UIImage bir görselin kendisini bellekte temsil eder, ancak bu veriyi JSON formatında doğrudan kodlamayı veya kod çözmeyi desteklemez. JSON gibi veri formatları, genellikle görsel dosyasını ham veri (Data) veya dosya yolu (String) olarak temsil eder.

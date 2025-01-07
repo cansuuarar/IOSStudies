@@ -7,10 +7,12 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 protocol TimerViewModelDelegate: AnyObject {
     func updateTimeLabel()
-    func updateCircularProgress(progress: Float)
+    //func updateCircularProgress(progress: Float)
+    func updateImage(_ image: UIImage)
 }
 
 final class TimerViewModel {
@@ -70,8 +72,8 @@ final class TimerViewModel {
             Constant.second = 59
         }
         timerDelegate?.updateTimeLabel()
-        let progress = Float(elapsedTime) / Float(totalTimeInSeconds)
-        timerDelegate?.updateCircularProgress(progress: progress)
+        //let progress = Float(elapsedTime) / Float(totalTimeInSeconds)
+        //timerDelegate?.updateCircularProgress(progress: progress)
         
         if Constant.hour == 0 && Constant.minute == 0 && Constant.second == 0 {
             timeOverPlaySound()
@@ -87,7 +89,7 @@ final class TimerViewModel {
         elapsedTime = 0
         didStart = false
         timerDelegate?.updateTimeLabel()
-        timerDelegate?.updateCircularProgress(progress: 0.0)
+        //timerDelegate?.updateCircularProgress(progress: 0.0)
         audioPlayer?.stop()
     }
     
@@ -97,8 +99,8 @@ final class TimerViewModel {
             didStart = false
             timerDelegate?.updateTimeLabel() // UI'yi güncelleriz
             audioPlayer?.stop()
-            let progress = Float(elapsedTime) / Float(totalTimeInSeconds)
-            timerDelegate?.updateCircularProgress(progress: progress)
+            //let progress = Float(elapsedTime) / Float(totalTimeInSeconds)
+            //timerDelegate?.updateCircularProgress(progress: progress)
         }
     }
     
@@ -133,7 +135,12 @@ final class TimerViewModel {
     }
     
     func changeBackgroundImage() {
-        
+        guard let savedBackgroundModel = UserDefaults.standard.data(forKey: Key.soundKey.rawValue) else { return }
+        let decoder = JSONDecoder()
+        guard let decodedModel = try? decoder.decode(BackgroundModel.self, from: savedBackgroundModel) else { return }
+        if let image = decodedModel.image {
+            timerDelegate?.updateImage(image)
+        }
     }
-    
+
 }

@@ -41,7 +41,7 @@ final class CircularProgressBar: UIView {
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = .round
         trackLayer.lineJoin = .round
-        layer.addSublayer(trackLayer)
+        //layer.addSublayer(trackLayer)
         
         // İlerleme (progress) katmanı
         progressLayer.path = circularPath.cgPath
@@ -51,7 +51,7 @@ final class CircularProgressBar: UIView {
         progressLayer.lineCap = .round
         progressLayer.lineJoin = .round
         progressLayer.strokeEnd = 0 // Başlangıç noktası
-        layer.addSublayer(progressLayer)
+        //layer.addSublayer(progressLayer)
         
         self.backgroundColor = UIColor.clear
     }

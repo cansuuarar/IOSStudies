@@ -7,6 +7,11 @@
 
 enum Background: String {
     case mountain = "mountain"
+    case foggy = "foggy"
+    case lake = "lake"
+    case sky = "sky"
+    case view = "view"
+    case amazon = "amazon"
     
 }
 

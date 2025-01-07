@@ -13,20 +13,24 @@ final class HomeViewController: UIViewController {
     private var homeViewModel = HomeViewModel()
     private var messageLabel: UILabel!
     private var focusButton: UIButton!
+    private var focusImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeViewModel.setupVideoBackground(for: self.view, videoName: .mountain)
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         setupView()
-        updateGreetingMessage()
+        homeViewModel.setupVideoBackground(for: self.view, videoName: .amazon)
+        homeViewModel.homeDelegate = self
+        homeViewModel.updateGreetingMessage()
         focusButton.addTarget(self, action: #selector(focusButtonStart), for: .touchUpInside)
     }
     
     private func setupView() {
-        self.tabBarController?.tabBar.tintColor = UIColor(hex: "#B3B4AE")
-        self.tabBarController?.tabBar.tintColor = .white
-        self.tabBarController?.tabBar.unselectedItemTintColor = UIColor( hex: "#D3C1A3")
+        tabBarController?.tabBar.tintColor = UIColor(hex: "#B3B4AE")
+        tabBarController?.tabBar.tintColor = .white
+        tabBarController?.tabBar.unselectedItemTintColor = UIColor( hex: "#D3C1A3")
+        tabBarController?.viewControllers?.first?.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        
         messageLabel = UILabel()
         messageLabel.font = UIFont.boldSystemFont(ofSize: 24)
         messageLabel.textColor = .white
@@ -38,9 +42,25 @@ final class HomeViewController: UIViewController {
             messageLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
         ])
         
+        focusImageView = UIImageView()
+        focusImageView.translatesAutoresizingMaskIntoConstraints = false
+        focusImageView.image = UIImage(named: "circle.png")
+        view.addSubview(focusImageView)
+        
+        NSLayoutConstraint.activate([
+            focusImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
+            focusImageView.widthAnchor.constraint(equalTo: focusImageView.heightAnchor),
+            focusImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            focusImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
+        focusImageView.layer.cornerRadius = focusImageView.frame.size.width / 2
+        focusImageView.clipsToBounds = true
+        
         focusButton = UIButton()
         focusButton.setTitle("FOCUS", for: .normal)
-        focusButton.tintColor = .white
+        focusButton.setTitleColor(.white, for: .normal)
+        focusButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         focusButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(focusButton)
         
@@ -50,21 +70,6 @@ final class HomeViewController: UIViewController {
         ])
     }
     
-    private func updateGreetingMessage() {
-        let currentHour = Calendar.current.component(.hour, from: Date())
-        var greetingMessage = ""
-        
-        if currentHour < 12 {
-            greetingMessage = "Hi, Good Morning!"
-        } else if currentHour >= 12 && currentHour < 18 {
-            greetingMessage = "Hi, Good Afternoon!"
-        } else {
-            greetingMessage = "Hi, Good Evening!"
-        }
-        
-        messageLabel.text = greetingMessage
-    }
-    
     @objc private func focusButtonStart() {
         let transitionOptions: UIView.AnimationOptions = [.transitionCrossDissolve]
         UIView.transition(with: view, duration: 0.2, options: transitionOptions, animations: {
@@ -72,6 +77,10 @@ final class HomeViewController: UIViewController {
         }, completion: nil)
         tabBarController?.tabBar.isHidden = false 
     }
-    
-    
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+    func updateMessage(_ greetingMessage: String) {
+        messageLabel.text = greetingMessage
+    }
 }

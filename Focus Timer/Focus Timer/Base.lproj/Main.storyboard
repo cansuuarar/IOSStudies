@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="osF-do-fvP"/>
-                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="mLi-Pe-mK7"/>
                 </viewController>
@@ -33,63 +33,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJU-3T-vj9" customClass="CircularProgressBar" customModule="Focus_Timer" customModuleProvider="target">
-                                <rect key="frame" x="70" y="341" width="250" height="260.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="um0-LU-AQS">
+                                <rect key="frame" x="20" y="446" width="350" height="50"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="um0-LU-AQS">
-                                        <rect key="frame" x="0.0" y="105" width="250" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFB-m7-ezq">
-                                                <rect key="frame" x="0.0" y="0.0" width="25" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="b1G-lD-RiW"/>
-                                                    <constraint firstAttribute="height" constant="50" id="wjM-vG-5PB"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system">
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="decreaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="kFu-yx-Zpn"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-E5-CG5">
-                                                <rect key="frame" x="43" y="0.0" width="164" height="50"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7F-oS-ZEb">
-                                                <rect key="frame" x="225" y="0.0" width="25" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="f1f-lR-Ses"/>
-                                                    <constraint firstAttribute="width" constant="25" id="sWM-Wj-KgK"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="chevron.up" catalog="system">
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="increaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="wCz-li-Mga"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFB-m7-ezq">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="qoa-G2-hkb"/>
+                                            <constraint firstAttribute="width" constant="25" id="b1G-lD-RiW"/>
+                                            <constraint firstAttribute="height" constant="50" id="wjM-vG-5PB"/>
                                         </constraints>
-                                    </stackView>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="decreaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="kFu-yx-Zpn"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-E5-CG5">
+                                        <rect key="frame" x="43" y="0.0" width="264" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7F-oS-ZEb">
+                                        <rect key="frame" x="325" y="0.0" width="25" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="f1f-lR-Ses"/>
+                                            <constraint firstAttribute="width" constant="25" id="sWM-Wj-KgK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.up" catalog="system">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="increaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="wCz-li-Mga"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="um0-LU-AQS" firstAttribute="centerX" secondItem="SJU-3T-vj9" secondAttribute="centerX" id="Awg-Vd-ifg"/>
-                                    <constraint firstItem="um0-LU-AQS" firstAttribute="centerY" secondItem="SJU-3T-vj9" secondAttribute="centerY" id="UMq-Q0-NVs"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="LBr-YD-ztj">
-                                <rect key="frame" x="100" y="700.33333333333337" width="190" height="24"/>
+                                <rect key="frame" x="126.00000000000001" y="550" width="138.33333333333337" height="24"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29P-H1-94r">
-                                        <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="24"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
@@ -100,7 +87,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la1-G6-4Q5">
-                                        <rect key="frame" x="117.66666666666666" y="0.0" width="72.333333333333343" height="24"/>
+                                        <rect key="frame" x="91.666666666666657" y="0.0" width="46.666666666666657" height="24"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="stop" catalog="system" symbolScale="large" variableValue="1"/>
@@ -120,19 +107,17 @@
                         <viewLayoutGuide key="safeArea" id="nc1-iN-tuF"/>
                         <color key="backgroundColor" red="0.82745098039215681" green="0.75686274509803919" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nc1-iN-tuF" firstAttribute="bottom" secondItem="LBr-YD-ztj" secondAttribute="bottom" constant="36.670000000000002" id="8f1-g3-WGU"/>
-                            <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="SJU-3T-vj9" secondAttribute="trailing" constant="70" id="BrM-6p-exX"/>
-                            <constraint firstItem="SJU-3T-vj9" firstAttribute="top" secondItem="nc1-iN-tuF" secondAttribute="top" constant="250" id="XqS-Qn-A8A"/>
-                            <constraint firstItem="LBr-YD-ztj" firstAttribute="top" secondItem="SJU-3T-vj9" secondAttribute="bottom" constant="99" id="cZM-JY-LzV"/>
-                            <constraint firstItem="SJU-3T-vj9" firstAttribute="leading" secondItem="nc1-iN-tuF" secondAttribute="leading" constant="70" id="fT4-xc-lUk"/>
-                            <constraint firstItem="LBr-YD-ztj" firstAttribute="leading" secondItem="nc1-iN-tuF" secondAttribute="leading" constant="100" id="gzP-Xp-5PA"/>
-                            <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="LBr-YD-ztj" secondAttribute="trailing" constant="100" id="qqf-fj-KR1"/>
-                            <constraint firstItem="SJU-3T-vj9" firstAttribute="centerX" secondItem="2Gm-Yh-wL5" secondAttribute="centerX" id="tD8-Eb-I3s"/>
+                            <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="um0-LU-AQS" secondAttribute="trailing" constant="20" id="ReO-3O-y9G"/>
+                            <constraint firstItem="um0-LU-AQS" firstAttribute="top" secondItem="nc1-iN-tuF" secondAttribute="top" constant="355" id="UTW-w0-RfJ"/>
+                            <constraint firstItem="um0-LU-AQS" firstAttribute="leading" secondItem="nc1-iN-tuF" secondAttribute="leading" constant="20" id="Z6N-mn-5Ab"/>
+                            <constraint firstItem="LBr-YD-ztj" firstAttribute="top" secondItem="um0-LU-AQS" secondAttribute="bottom" constant="54" id="hno-NM-cEf"/>
+                            <constraint firstItem="LBr-YD-ztj" firstAttribute="leading" secondItem="nc1-iN-tuF" secondAttribute="leading" constant="126" id="iGq-97-TIa"/>
+                            <constraint firstItem="nc1-iN-tuF" firstAttribute="bottom" secondItem="LBr-YD-ztj" secondAttribute="bottom" constant="187" id="lqE-sf-hwf"/>
+                            <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="LBr-YD-ztj" secondAttribute="trailing" constant="125.67" id="vJ4-Ns-6wn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lqe-1e-a7M"/>
                     <connections>
-                        <outlet property="progressView" destination="SJU-3T-vj9" id="Ova-c3-rX0"/>
                         <outlet property="startButton" destination="29P-H1-94r" id="mN5-j3-nMZ"/>
                         <outlet property="stopButton" destination="la1-G6-4Q5" id="lFH-EU-csP"/>
                         <outlet property="timerLabel" destination="Xhs-E5-CG5" id="0N1-RY-VRz"/>
@@ -215,11 +200,13 @@
             </objects>
             <point key="canvasLocation" x="1800" y="1550"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="aLe-dU-WHz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jyy-IA-65y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="ywx-XQ-WG1"/>
+                    <tabBarItem key="tabBarItem" title="" id="ywx-XQ-WG1">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JDJ-t8-5lk">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
