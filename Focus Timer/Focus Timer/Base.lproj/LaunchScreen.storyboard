@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -15,17 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Adsız tasarım" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-bB-gXb">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="focus2" translatesAutoresizingMaskIntoConstraints="NO" id="aa6-VT-dIS">
+                                <rect key="frame" x="20" y="278" width="353" height="300"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bgt-bB-gXb" secondAttribute="trailing" id="502-rD-Web"/>
-                            <constraint firstItem="bgt-bB-gXb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5E0-gN-lDc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bgt-bB-gXb" secondAttribute="bottom" id="ROT-d3-O3p"/>
-                            <constraint firstItem="bgt-bB-gXb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fMk-Iz-nFz"/>
+                            <constraint firstItem="aa6-VT-dIS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="219" id="0Or-Cu-Gz4"/>
+                            <constraint firstItem="aa6-VT-dIS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1hm-DF-fRK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aa6-VT-dIS" secondAttribute="bottom" constant="240" id="2GW-jQ-Y8n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aa6-VT-dIS" secondAttribute="trailing" constant="20" id="CaX-Hk-2St"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Adsız tasarım" width="1063" height="1063"/>
+        <image name="focus2" width="1820" height="1920"/>
     </resources>
 </document>

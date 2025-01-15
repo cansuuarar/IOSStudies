@@ -19,21 +19,39 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         collectionView.delegate = self
         collectionView.dataSource = self
         applyGradientBackground()
-        //view.backgroundColor = UIColor(hex: "#DADEDF")
     }
     
     private func setView() {
-        titleLabel.text = "Choose Background"
+        tabBarController?.tabBarItem.image = UIImage(named: "home.png")
+        titleLabel.text = "Set Your Space"
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         titleLabel.textColor = UIColor(hex: "#BFA6A0")
-        let leftBarButton = UIBarButtonItem(customView: titleLabel)
-        navigationItem.leftBarButtonItem = leftBarButton
+        //let leftBarButton = UIBarButtonItem(customView: titleLabel)
+        //navigationItem.leftBarButtonItem = leftBarButton
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8), // Genişlik
+            titleLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        
         
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        // horizontal
+        //layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10 // Hücreler arasındaki dikey boşluk
-        layout.minimumInteritemSpacing = 10 // Hücreler arasındaki yatay boşluk
-        let itemWidth = (self.view.frame.width - 48) / 3 // 48: iki boşluk (16 * 3)
+        layout.minimumInteritemSpacing = 5 // Hücreler arasındaki yatay boşluk
+        //let itemWidth = (self.view.frame.width - 48) / 3 // 48: iki boşluk (16 * 3)
+        
+        // vertical
+        layout.scrollDirection = .vertical
+        let itemWidth = (self.view.frame.width - 48) / 2
+        
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,21 +59,20 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         
         view.addSubview(collectionView)
         collectionView.backgroundColor = .clear
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -500).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         
         view.addSubview(okButton)
         okButton.translatesAutoresizingMaskIntoConstraints = false
-        okButton.setTitle("Choose", for: .normal)
+        okButton.setTitle("Set", for: .normal)
         okButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         okButton.setTitleColor(.white, for: .normal)
         okButton.backgroundColor = UIColor(hex: "#B3B4AE")
         okButton.layer.cornerRadius = 8
         okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
         
-        // OK Butonu Kısıtlamaları
         okButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10).isActive = true
         okButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         okButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -77,7 +94,7 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         BackgroundManager.shared.backgroundModel = BackgroundModel.backgroundData[indexPath.item]
         guard let backgroundModel = BackgroundManager.shared.backgroundModel else { return }
         let backgrounModel = BackgroundModel(soundName: backgroundModel.soundName, imageData:  backgroundModel.image!.jpegData(compressionQuality: 1.0)!)
-       
+        
         backgroundViewModel.playSound(name: backgrounModel.soundName)
     }
     
@@ -89,18 +106,19 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["image": image])
         }
-       self.tabBarController?.selectedIndex = 1
+        //self.tabBarController?.selectedIndex = 1
+        self.dismiss(animated: true)
     }
     
     func applyGradientBackground() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
-                UIColor(hex: "#f0f4f8").cgColor,
-                UIColor(hex: "#d6d2cf").cgColor,
-                UIColor(hex: "#e0dedb").cgColor,
-                UIColor(hex: "#dad8d1").cgColor
-            ]
+            UIColor(hex: "#f0f4f8").cgColor,
+            UIColor(hex: "#d6d2cf").cgColor,
+            UIColor(hex: "#e0dedb").cgColor,
+            UIColor(hex: "#dad8d1").cgColor
+        ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         view.layer.insertSublayer(gradientLayer, at: 0)

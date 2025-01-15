@@ -12,25 +12,24 @@ final class HomeViewController: UIViewController {
     
     private var homeViewModel = HomeViewModel()
     private var messageLabel: UILabel!
-    private var focusButton: UIButton!
+    private var focusButton = UIButton()
     private var focusImageView: UIImageView!
+    private var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
-        setupView()
-        homeViewModel.setupVideoBackground(for: self.view, videoName: .amazon)
-        homeViewModel.homeDelegate = self
-        homeViewModel.updateGreetingMessage()
-        focusButton.addTarget(self, action: #selector(focusButtonStart), for: .touchUpInside)
+        homeViewModel.setupVideoBackground(for: self.view, videoName: .amazon) {
+            DispatchQueue.main.async {
+                self.setupView()
+                self.homeViewModel.homeDelegate = self
+                self.homeViewModel.updateGreetingMessage()
+            }
+        }
     }
-    
+
     private func setupView() {
-        tabBarController?.tabBar.tintColor = UIColor(hex: "#B3B4AE")
-        tabBarController?.tabBar.tintColor = .white
-        tabBarController?.tabBar.unselectedItemTintColor = UIColor( hex: "#D3C1A3")
-        tabBarController?.viewControllers?.first?.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        
+        self.tabBarItem = UITabBarItem(title: .none, image: UIImage(named: "home"), tag: 0)
         messageLabel = UILabel()
         messageLabel.font = UIFont.boldSystemFont(ofSize: 24)
         messageLabel.textColor = .white
@@ -42,31 +41,42 @@ final class HomeViewController: UIViewController {
             messageLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
         ])
         
+        containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(containerView)
+        
+        NSLayoutConstraint.activate([
+                containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                containerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25),
+                containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor)
+        ])
+    
         focusImageView = UIImageView()
         focusImageView.translatesAutoresizingMaskIntoConstraints = false
         focusImageView.image = UIImage(named: "circle.png")
-        view.addSubview(focusImageView)
-        
-        NSLayoutConstraint.activate([
-            focusImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
-            focusImageView.widthAnchor.constraint(equalTo: focusImageView.heightAnchor),
-            focusImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            focusImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-
         focusImageView.layer.cornerRadius = focusImageView.frame.size.width / 2
         focusImageView.clipsToBounds = true
+        containerView.addSubview(focusImageView)
         
         focusButton = UIButton()
+        focusButton.translatesAutoresizingMaskIntoConstraints = false
         focusButton.setTitle("FOCUS", for: .normal)
         focusButton.setTitleColor(.white, for: .normal)
         focusButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        focusButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(focusButton)
-        
-        NSLayoutConstraint.activate ([
-            focusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            focusButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        focusButton.addTarget(self, action: #selector(self.focusButtonStart), for: .touchUpInside)
+        containerView.addSubview(focusButton)
+
+        NSLayoutConstraint.activate([
+            focusImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
+            focusImageView.widthAnchor.constraint(equalTo: focusImageView.heightAnchor),
+            focusImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            focusImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            focusButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            focusButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ])
     }
     
@@ -75,7 +85,7 @@ final class HomeViewController: UIViewController {
         UIView.transition(with: view, duration: 0.2, options: transitionOptions, animations: {
             self.tabBarController?.selectedIndex = 1
         }, completion: nil)
-        tabBarController?.tabBar.isHidden = false 
+        tabBarController?.tabBar.isHidden = false
     }
 }
 

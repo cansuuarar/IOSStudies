@@ -8,20 +8,17 @@
 import UIKit
 import CoreImage
 
-
 final class TimerCountdownViewController: UIViewController, TimerViewModelDelegate {
-    
+    @IBOutlet private weak var backgroundButton: UIButton!
     @IBOutlet private weak var timerLabel: UILabel!
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var startButton: UIButton!
-   // @IBOutlet private var progressView: CircularProgressBar!
     private var backgroundImageView: UIImageView!
     private var viewModel = TimerViewModel()
-    //private var progress: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupView()
+        self.tabBarItem = UITabBarItem(title: .none, image: UIImage(named: "time"), tag: 1)
         viewModel.timerDelegate = self
         updateTimeLabel()
         setupBackgroundImageView()
@@ -35,34 +32,18 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.clipsToBounds = true
         backgroundImageView.alpha = 0.7
-  
+        
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
+        
+        backgroundButton.imageView?.contentMode = .scaleAspectFit
+        //backgroundButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        //backgroundButton.imageView?.image = UIImage(named: "back.png")
     }
     
     func updateImage(_ image: UIImage) {
         backgroundImageView.image = image
     }
-
-    /*
-    func setupView() {
-        //progressView.layer.cornerRadius = progressView.bounds.width / 2
-        //progressView.layer.masksToBounds = true
-        //progressView.clipsToBounds = true
-    }
-    
-    func applyGradientBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [
-            UIColor(hex: "#D3C1A3").cgColor, // Akaroa
-            UIColor(hex: "#B3B4AE").cgColor  // Gray Nickel
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0) // Sol üstten başlar
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)   // Sağ alt köşeye kadar
-        view.layer.insertSublayer(gradientLayer, at: 0)
-    }
-     */
     
     func applyGradientBackground() {
         let gradientLayer = CAGradientLayer()
@@ -78,27 +59,13 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    @IBAction func increaseMinutes(_ sender: Any) {
+    @IBAction private func increaseMinutes(_ sender: Any) {
         viewModel.increaseMinute()
     }
     
-    @IBAction func decreaseMinutes(_ sender: Any) {
+    @IBAction private func decreaseMinutes(_ sender: Any) {
         viewModel.decreaseMinute()
     }
-    
-    func updateTimeLabel() {
-        DispatchQueue.main.async { [weak self] in
-            self?.timerLabel.text =
-            String(format:"%02i:%02i:%02i", Constant.hour, Constant.minute, Constant.second)
-        }
-    }
-    /*
-    func updateCircularProgress(progress: Float) {
-        DispatchQueue.main.async { [weak self] in
-            self?.progressView.setProgress(to: progress)
-        }
-    }
-     */
     
     @IBAction private func startButtonPressed(_ sender: UIButton) {
         if viewModel.getDidStart() {
@@ -109,18 +76,36 @@ final class TimerCountdownViewController: UIViewController, TimerViewModelDelega
             viewModel.playSound()
             sender.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         }
+        
+        //tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction private func stopButtonPressed(_ sender: UIButton) {
+        tabBarController?.tabBar.isHidden = false
         viewModel.stopTimer()
         sender.setImage(UIImage(systemName: "stop"), for: .normal)
+        if startButton.currentImage == UIImage(systemName: "pause.fill") {
+            startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        }
     }
     
-    @objc func handleNotification(_ notification: Notification) {
+    @IBAction func backgroundButtonpressed(_ sender: Any) {
+        guard let backgroundvc = storyboard?.instantiateViewController(withIdentifier: "backgroundVC") as? BackgroundViewController else { return }
+        navigationController?.present(backgroundvc, animated: true)
+    }
+    
+    @objc private func handleNotification(_ notification: Notification) {
         DispatchQueue.main.async {
             if let userInfo = notification.userInfo, let image = userInfo["image"] as? UIImage {
                 self.backgroundImageView.image = image
             }
+        }
+    }
+    
+    func updateTimeLabel() {
+        DispatchQueue.main.async { [weak self] in
+            self?.timerLabel.text =
+            String(format:"%02i:%02i:%02i", Constant.hour, Constant.minute, Constant.second)
         }
     }
 }

@@ -17,7 +17,7 @@ final class HomeViewModel {
     private var playerLayer: AVPlayerLayer?
     weak var homeDelegate: HomeViewModelDelegate?
     
-    func setupVideoBackground(for view: UIView, videoName: Background) {
+    func setupVideoBackground(for view: UIView, videoName: Background, completion: @escaping () -> Void) {
         guard let path = Bundle.main.path(forResource: videoName.rawValue, ofType: AudioExtension.videoMp4.rawValue) else { return }
         view.alpha = 0.8
         let url = URL(fileURLWithPath: path)
@@ -34,12 +34,17 @@ final class HomeViewModel {
         player?.play()
         player?.rate = 0.5
         player?.volume = 0.2
+            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            completion()
+        }
+    
     }
+
     
     @objc func playerItemDidReachEnd(notification: Notification) {
         if let playerItem = notification.object as? AVPlayerItem {
             playerItem.seek(to: CMTime.zero, completionHandler: nil)
-
         }
     }
     

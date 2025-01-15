@@ -33,7 +33,7 @@ final class BackgroundViewModel {
     func saveToUserdefaults(backgroundModel: BackgroundModel) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(backgroundModel) {
-            UserDefaults.standard.set(encoded, forKey: "backgroundModelKey")
+            UserDefaults.standard.set(encoded, forKey: Key.soundKey.rawValue)
         }
     }
 }

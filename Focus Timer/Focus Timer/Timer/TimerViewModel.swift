@@ -84,7 +84,7 @@ final class TimerViewModel {
     func stopTimer() {
         timer.invalidate()
         Constant.hour = 0
-        Constant.minute = 1
+        Constant.minute = 25
         Constant.second = 0
         elapsedTime = 0
         didStart = false

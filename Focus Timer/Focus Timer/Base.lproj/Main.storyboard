@@ -12,18 +12,18 @@
         <!--Background View Controller-->
         <scene sceneID="nX1-Kd-c3n">
             <objects>
-                <viewController id="4MO-tV-WS6" customClass="BackgroundViewController" customModule="Focus_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="backgroundVC" id="4MO-tV-WS6" customClass="BackgroundViewController" customModule="Focus_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vYY-32-sOs">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="osF-do-fvP"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="mLi-Pe-mK7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgc-NK-ns5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2607.6923076923076" y="1549.7630331753553"/>
+            <point key="canvasLocation" x="2734" y="909"/>
         </scene>
         <!--Timer Countdown View Controller-->
         <scene sceneID="1YX-GJ-e9o">
@@ -99,18 +99,33 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="29P-H1-94r" firstAttribute="baseline" secondItem="la1-G6-4Q5" secondAttribute="firstBaseline" id="gqf-Xl-CeL"/>
-                                </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zi-3B-xgw">
+                                <rect key="frame" x="335" y="106" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="4Ad-ha-fkM"/>
+                                    <constraint firstAttribute="width" constant="25" id="fw7-Xd-IB4"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="line.3.horizontal.circle" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="23" scale="large" weight="medium"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backgroundButtonpressed:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="bWr-HT-HAT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nc1-iN-tuF"/>
                         <color key="backgroundColor" red="0.82745098039215681" green="0.75686274509803919" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="2Zi-3B-xgw" secondAttribute="trailing" constant="30" id="KuE-YC-Rtg"/>
                             <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="um0-LU-AQS" secondAttribute="trailing" constant="20" id="ReO-3O-y9G"/>
-                            <constraint firstItem="um0-LU-AQS" firstAttribute="top" secondItem="nc1-iN-tuF" secondAttribute="top" constant="355" id="UTW-w0-RfJ"/>
+                            <constraint firstItem="um0-LU-AQS" firstAttribute="top" secondItem="2Zi-3B-xgw" secondAttribute="bottom" constant="315" id="YmK-45-QkG"/>
                             <constraint firstItem="um0-LU-AQS" firstAttribute="leading" secondItem="nc1-iN-tuF" secondAttribute="leading" constant="20" id="Z6N-mn-5Ab"/>
                             <constraint firstItem="LBr-YD-ztj" firstAttribute="top" secondItem="um0-LU-AQS" secondAttribute="bottom" constant="54" id="hno-NM-cEf"/>
+                            <constraint firstItem="2Zi-3B-xgw" firstAttribute="top" secondItem="nc1-iN-tuF" secondAttribute="top" constant="15" id="hv5-Gt-thX"/>
                             <constraint firstItem="LBr-YD-ztj" firstAttribute="leading" secondItem="nc1-iN-tuF" secondAttribute="leading" constant="126" id="iGq-97-TIa"/>
                             <constraint firstItem="nc1-iN-tuF" firstAttribute="bottom" secondItem="LBr-YD-ztj" secondAttribute="bottom" constant="187" id="lqE-sf-hwf"/>
                             <constraint firstItem="nc1-iN-tuF" firstAttribute="trailing" secondItem="LBr-YD-ztj" secondAttribute="trailing" constant="125.67" id="vJ4-Ns-6wn"/>
@@ -118,6 +133,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lqe-1e-a7M"/>
                     <connections>
+                        <outlet property="backgroundButton" destination="2Zi-3B-xgw" id="axq-fA-4sm"/>
                         <outlet property="startButton" destination="29P-H1-94r" id="mN5-j3-nMZ"/>
                         <outlet property="stopButton" destination="la1-G6-4Q5" id="lFH-EU-csP"/>
                         <outlet property="timerLabel" destination="Xhs-E5-CG5" id="0N1-RY-VRz"/>
@@ -125,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMy-ax-arX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3458" y="668"/>
+            <point key="canvasLocation" x="2733.8461538461538" y="199.76303317535545"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7aO-DF-AoK">
@@ -135,11 +151,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <tabBarAppearance key="standardAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="Jyy-IA-65y" kind="relationship" relationship="viewControllers" id="tXV-Og-c1J"/>
                         <segue destination="ySL-wK-THj" kind="relationship" relationship="viewControllers" id="HXd-Mi-1Dw"/>
-                        <segue destination="Olq-87-YT0" kind="relationship" relationship="viewControllers" id="gDa-22-mOI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKH-Ue-ZTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -160,13 +177,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIl-5F-Iso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3876.9230769230767" y="-103.08056872037915"/>
+            <point key="canvasLocation" x="2668" y="-568"/>
         </scene>
-        <!--clock-->
+        <!--Navigation Controller-->
         <scene sceneID="CWa-1b-koh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ySL-wK-THj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="clock" id="xyf-fE-2iK"/>
+                    <tabBarItem key="tabBarItem" title="" id="xyf-fE-2iK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N8B-zp-dA9">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -179,26 +196,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaC-kx-pzD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="668"/>
-        </scene>
-        <!--Background-->
-        <scene sceneID="MSU-vd-Pjy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Olq-87-YT0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Background" id="8qG-T7-YPO"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gmm-ag-2Um">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4MO-tV-WS6" kind="relationship" relationship="rootViewController" id="L52-Aj-YKa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xxP-na-GwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="1550"/>
+            <point key="canvasLocation" x="1963" y="200"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aLe-dU-WHz">
@@ -219,12 +217,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jju-9R-Ikz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2947.6923076923076" y="-103.08056872037915"/>
+            <point key="canvasLocation" x="1902" y="-568"/>
         </scene>
     </scenes>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="chevron.up" catalog="system" width="128" height="70"/>
+        <image name="line.3.horizontal.circle" catalog="system" width="128" height="123"/>
         <image name="play" catalog="system" width="120" height="128"/>
         <image name="stop" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
