@@ -1,0 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+
+target 'PodsDemo' do
+  pod 'Kingfisher', '~> 7.0'
+end

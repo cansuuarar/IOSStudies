@@ -7,5 +7,6 @@
 
 enum Background: String {
     case amazon = "amazon"
+    case foggy = "foggy"
 }
 
