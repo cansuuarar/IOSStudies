@@ -10,10 +10,9 @@ import UIKit
 final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBar.isHidden = true
         self.tabBar.tintColor = .white
-        self.tabBar.unselectedItemTintColor = UIColor( hex: "#D3C1A3")
+        self.tabBar.unselectedItemTintColor = UIColor.cyan
     }
 }
-
-
 

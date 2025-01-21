@@ -43,7 +43,7 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="decreaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="kFu-yx-Zpn"/>
+                                            <action selector="decreaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="CW8-2K-DoV"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-E5-CG5">
@@ -59,7 +59,7 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="increaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="wCz-li-Mga"/>
+                                            <action selector="increaseMinutes:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="0Ix-xb-Yo6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -70,13 +70,12 @@
                                     <constraint firstAttribute="width" secondItem="2Zi-3B-xgw" secondAttribute="height" multiplier="62:41" id="eCc-gv-2Ja"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="line.3.horizontal.circle" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="23" scale="large" weight="medium"/>
+                                <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24" scale="large" weight="bold"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="backgroundButtonpressed:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="bWr-HT-HAT"/>
+                                    <action selector="backgroundButtonpressed:" destination="1Nf-oi-wuw" eventType="touchUpInside" id="fFw-eD-BYD"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="LBr-YD-ztj">
@@ -125,7 +124,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="lqe-1e-a7M"/>
                     <connections>
-                        <outlet property="backgroundButton" destination="2Zi-3B-xgw" id="axq-fA-4sm"/>
+                        <outlet property="backgroundButton" destination="2Zi-3B-xgw" id="lKR-cV-MRA"/>
+                        <outlet property="decreaseButton" destination="YFB-m7-ezq" id="ISV-cL-R30"/>
+                        <outlet property="increaseButton" destination="U7F-oS-ZEb" id="3YM-pr-ZHq"/>
                         <outlet property="startButton" destination="29P-H1-94r" id="mN5-j3-nMZ"/>
                         <outlet property="stopButton" destination="la1-G6-4Q5" id="lFH-EU-csP"/>
                         <outlet property="timerLabel" destination="Xhs-E5-CG5" id="0N1-RY-VRz"/>
@@ -139,7 +140,7 @@
         <scene sceneID="7aO-DF-AoK">
             <objects>
                 <tabBarController id="fmP-ji-Hdi" customClass="TabBarController" customModule="Focus_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e5k-lY-0cj">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="e5k-lY-0cj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,7 +176,7 @@
         <scene sceneID="CWa-1b-koh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ySL-wK-THj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="xyf-fE-2iK"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="timer" catalog="system" id="xyf-fE-2iK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N8B-zp-dA9">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -194,7 +195,7 @@
         <scene sceneID="aLe-dU-WHz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jyy-IA-65y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="ywx-XQ-WG1">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="house" catalog="system" id="ywx-XQ-WG1">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -215,9 +216,11 @@
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="chevron.up" catalog="system" width="128" height="70"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.circle" catalog="system" width="128" height="123"/>
         <image name="play" catalog="system" width="120" height="128"/>
         <image name="stop" catalog="system" width="128" height="113"/>
+        <image name="timer" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

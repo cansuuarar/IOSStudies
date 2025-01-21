@@ -20,7 +20,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         guard let path = Bundle.main.path(forResource: "amazon", ofType: AudioExtension.videoMp4.rawValue) else { return }
         let url = URL(fileURLWithPath: path)
         player = AVPlayer(url: url)
@@ -77,17 +77,11 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupView() {
-        self.tabBarItem = UITabBarItem(title: .none, image: UIImage(named: "home"), tag: 0)
-        
-        
-        
-        
-       
+        self.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "house"), tag: 0)
         messageLabel = UILabel()
         messageLabel.font = UIFont.boldSystemFont(ofSize: 24)
         messageLabel.textColor = .white
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        //messageLabel.text = message
         view.addSubview(messageLabel)
         
         NSLayoutConstraint.activate ([
@@ -139,20 +133,11 @@ final class HomeViewController: UIViewController {
         UIView.transition(with: view, duration: 0.2, options: transitionOptions, animations: {
             self.tabBarController?.selectedIndex = 1
         }, completion: nil)
-        tabBarController?.tabBar.isHidden = false
     }
 }
 
 extension HomeViewController: HomeViewModelDelegate {
-    /*func videoReadyToPlay() {
-     DispatchQueue.main.async {
-     self.setupView()
-     }
-     }
-     */
-    
     func updateMessage(_ greetingMessage: String) {
         messageLabel.text = greetingMessage
-        //message = greetingMessage
     }
 }

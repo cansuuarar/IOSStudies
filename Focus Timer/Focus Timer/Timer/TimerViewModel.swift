@@ -13,11 +13,13 @@ protocol TimerViewModelDelegate: AnyObject {
     func updateTimeLabel()
     //func updateCircularProgress(progress: Float)
     func updateImage(_ image: UIImage)
+    func updateTabBar(_ soundName: String)
+    func disableBackgroundButton()
 }
 
 final class TimerViewModel {
     weak var timerDelegate: TimerViewModelDelegate?
-    private var audioPlayer: AVAudioPlayer?
+    private var audioPlayer = AVAudioPlayer()
     private var timer = Timer()
     private var didStart = false
     private var totalTimeInSeconds: Int = 0
@@ -25,6 +27,10 @@ final class TimerViewModel {
     
     func getDidStart() -> Bool {
         return didStart
+    }
+    
+    func getAudioPlayer() -> AVAudioPlayer {
+        return audioPlayer
     }
     
     func increaseMinute() {
@@ -90,15 +96,15 @@ final class TimerViewModel {
         didStart = false
         timerDelegate?.updateTimeLabel()
         //timerDelegate?.updateCircularProgress(progress: 0.0)
-        audioPlayer?.stop()
+        audioPlayer.stop()
     }
     
     func pauseTimer() {
         if didStart {
-            timer.invalidate()  // Timer'ı duraklatıyoruz
+            timer.invalidate()
             didStart = false
-            timerDelegate?.updateTimeLabel() // UI'yi güncelleriz
-            audioPlayer?.stop()
+            timerDelegate?.updateTimeLabel()
+            audioPlayer.stop()
             //let progress = Float(elapsedTime) / Float(totalTimeInSeconds)
             //timerDelegate?.updateCircularProgress(progress: progress)
         }
@@ -115,7 +121,7 @@ final class TimerViewModel {
         guard let url = Bundle.main.url(forResource: "beep", withExtension: "mp3") else { return }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
+            audioPlayer.play()
         } catch {}
     }
     
@@ -126,11 +132,11 @@ final class TimerViewModel {
         
         do {
             guard let url = Bundle.main.url(forResource: decodedModel.soundName, withExtension: AudioExtension.soundMp3.rawValue) else { return }
-            if audioPlayer?.isPlaying == true {
-                audioPlayer?.stop()
+            if audioPlayer.isPlaying == true {
+                audioPlayer.stop()
             }
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
+            audioPlayer.play()
         } catch {}
     }
     
@@ -141,6 +147,15 @@ final class TimerViewModel {
         if let image = decodedModel.image {
             timerDelegate?.updateImage(image)
         }
+        let imageSound = decodedModel.soundName
+        timerDelegate?.updateTabBar(imageSound)
+    }
+    
+    
+    func disableBackgroundButton2() {
+       
+            timerDelegate?.disableBackgroundButton()
+        
     }
 
 }

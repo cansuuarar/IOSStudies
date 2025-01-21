@@ -22,7 +22,6 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
     }
     
     private func setView() {
-        tabBarController?.tabBarItem.image = UIImage(named: "home.png")
         titleLabel.text = "Set Your Space"
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         titleLabel.textColor = UIColor(hex: "#BFA6A0")
@@ -38,8 +37,6 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
             titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8), // Genişlik
             titleLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
-        
         
         let layout = UICollectionViewFlowLayout()
         // horizontal
@@ -103,8 +100,9 @@ final class BackgroundViewController: UIViewController, UICollectionViewDelegate
         backgroundViewModel.saveToUserdefaults(backgroundModel: savedBackground)
         backgroundViewModel.stopSound()
         guard let image = savedBackground.image else { return }
+        let SoundName = savedBackground.soundName
         DispatchQueue.main.async {
-            NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["image": image])
+            NotificationCenter.default.post(name: .myNotification, object: nil, userInfo: ["image": image, "soundName": SoundName])
         }
         //self.tabBarController?.selectedIndex = 1
         self.dismiss(animated: true)
